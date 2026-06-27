@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>QuickWash - Payment Options</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#7c4ce6",
+                    "on-primary-fixed": "#001b3e",
+                    "surface-container-low": "#161b2b",
+                    "surface-bright": "#343949",
+                    "primary-fixed": "#d6e3ff",
+                    "inverse-surface": "#dee1f7",
+                    "error-container": "#93000a",
+                    "on-background": "#dee1f7",
+                    "secondary-container": "#03b5d3",
+                    "background": "#0e1322",
+                    "secondary-fixed-dim": "#4cd7f6",
+                    "on-primary-container": "#eaefff",
+                    "outline": "#8c919e",
+                    "surface-dim": "#0e1322",
+                    "outline-variant": "#424752",
+                    "on-tertiary-fixed-variant": "#5516be",
+                    "surface-container-highest": "#2f3445",
+                    "on-surface": "#dee1f7",
+                    "surface-variant": "#2f3445",
+                    "surface-container-high": "#25293a",
+                    "on-secondary-fixed": "#001f26",
+                    "tertiary": "#d0bcff",
+                    "primary-container": "#1a6bcc",
+                    "on-error": "#690005",
+                    "inverse-primary": "#005db9",
+                    "surface-container-lowest": "#090e1c",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed": "#e9ddff",
+                    "secondary-fixed": "#acedff",
+                    "surface-tint": "#aac7ff",
+                    "surface-container": "#1a1f2f",
+                    "on-surface-variant": "#c2c6d4",
+                    "on-primary": "#002f64",
+                    "primary": "#aac7ff",
+                    "on-secondary-container": "#00424e",
+                    "on-tertiary-container": "#f5ecff",
+                    "inverse-on-surface": "#2b3040",
+                    "secondary": "#4cd7f6",
+                    "primary-fixed-dim": "#aac7ff",
+                    "tertiary-fixed-dim": "#d0bcff",
+                    "on-tertiary": "#3c0091",
+                    "surface": "#0e1322",
+                    "on-secondary-fixed-variant": "#004e5c",
+                    "on-secondary": "#003640",
+                    "on-tertiary-fixed": "#23005c",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#00458d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "xl": "32px",
+                    "lg": "24px",
+                    "base": "4px",
+                    "sm": "8px",
+                    "xs": "4px",
+                    "gutter": "16px",
+                    "container-padding": "20px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "title-md": ["Inter"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "30px", "fontWeight": "700"}],
+                    "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600"}],
+                    "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0e1322;
+            color: #dee1f7;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .glass-surface {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .glass-surface-high {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .primary-gradient-btn {
+            background: linear-gradient(135deg, #1a6bcc 0%, #03b5d3 100%);
+            opacity: 0.9;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .primary-gradient-btn:active {
+            transform: scale(0.96);
+            opacity: 1;
+        }
+
+        .selection-glow {
+            box-shadow: 0 0 20px rgba(76, 215, 246, 0.25);
+            border-color: #4cd7f6;
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="dark min-h-screen flex flex-col">
+<!-- Top Navigation Shell -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-white/10 backdrop-blur-[20px] border-b border-white/12">
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary drop-shadow-[0_0_8px_rgba(170,199,255,0.5)]">QuickWash</h1>
+</div>
+<div class="w-10 h-10 rounded-full border border-white/12 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A futuristic, high-detail digital avatar of a young professional user in a neon-lit cyberpunk city environment. The lighting is dominated by soft cyan and deep blue glows, matching a premium tech-aesthetic. The character has a friendly expression and is rendered in a high-fidelity 3D style with cinematic depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALMbEzBwaiOlfHwqGkL7yANWdPCN4r7OlhnQ25X2kfBawdmZqAJTILcyYMmMK4Kn3GFAJVBPNJc6TcOa8LzE8-qTkSZ0H_lL44z72-mbBBuohle14fTwgufOOMcAgtgmNZh84v_5mIWJOsb2S19dqOlJ2awo_n0krZG6xHnfKo1xxHVUw1hy3jqLDuWvlZmJcgXiGX0EP09zAqTJco5KnTb4Q4Q7ehZfoTe9tP4jI--dil_0q3br0NW5w9ao933Q29Tb7TZwfWPQM"/>
+</div>
+</header>
+<main class="flex-1 mt-24 mb-32 px-container-padding max-w-[800px] mx-auto w-full">
+<!-- Background Animation -->
+<div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+
+</div>
+<!-- Amount Header Section -->
+<section class="text-center mb-10 fade-in-up" style="animation-delay: 0.1s;">
+<p class="font-label-md text-label-md text-on-surface-variant mb-2 uppercase tracking-widest">Total Amount to Pay</p>
+<h2 class="font-headline-xl text-headline-xl text-primary mb-1">₹849.00</h2>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 glass-surface rounded-full">
+<span class="material-symbols-outlined text-secondary text-[16px]">info</span>
+<span class="font-label-sm text-label-sm text-secondary">3 Items • Express Service</span>
+</div>
+</section>
+<!-- Payment Methods Grid -->
+<div class="space-y-4 fade-in-up" style="animation-delay: 0.2s;">
+<!-- UPI Option -->
+<label class="block relative cursor-pointer group">
+<input checked="" class="hidden peer" name="payment_method" type="radio"/>
+<div class="glass-surface p-md rounded-xl flex items-center justify-between transition-all duration-300 peer-checked:selection-glow peer-checked:bg-white/10 group-hover:bg-white/5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[32px]">account_balance_wallet</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-on-surface">UPI (GPay, PhonePe)</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Pay directly from your bank account</p>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-white/20 flex items-center justify-center peer-checked:border-secondary">
+<div class="w-3 h-3 rounded-full bg-secondary opacity-0 transition-opacity peer-checked:opacity-100"></div>
+</div>
+</div>
+</label>
+<!-- Credit/Debit Card -->
+<label class="block relative cursor-pointer group">
+<input class="hidden peer" name="payment_method" type="radio"/>
+<div class="glass-surface p-md rounded-xl flex items-center justify-between transition-all duration-300 peer-checked:selection-glow peer-checked:bg-white/10 group-hover:bg-white/5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[32px]">credit_card</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-on-surface">Credit/Debit Cards</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Visa, Mastercard, RuPay &amp; more</p>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-white/20 flex items-center justify-center peer-checked:border-secondary">
+<div class="w-3 h-3 rounded-full bg-secondary opacity-0 transition-opacity peer-checked:opacity-100"></div>
+</div>
+</div>
+</label>
+<!-- QuickWash Wallet -->
+<label class="block relative cursor-pointer group">
+<input class="hidden peer" name="payment_method" type="radio"/>
+<div class="glass-surface p-md rounded-xl flex items-center justify-between transition-all duration-300 peer-checked:selection-glow peer-checked:bg-white/10 group-hover:bg-white/5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary relative overflow-hidden">
+<span class="material-symbols-outlined text-[32px]">account_balance_wallet</span>
+<div class="absolute inset-0 bg-secondary/5 blur-xl"></div>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<p class="font-title-md text-title-md text-on-surface">QuickWash Wallet</p>
+<span class="px-2 py-0.5 rounded-full bg-secondary/20 text-secondary text-[10px] font-bold uppercase">Fastest</span>
+</div>
+<p class="font-label-md text-label-md text-secondary font-semibold">Available: ₹1,240</p>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-white/20 flex items-center justify-center peer-checked:border-secondary">
+<div class="w-3 h-3 rounded-full bg-secondary opacity-0 transition-opacity peer-checked:opacity-100"></div>
+</div>
+</div>
+</label>
+<!-- Cash on Delivery -->
+<label class="block relative cursor-pointer group">
+<input class="hidden peer" name="payment_method" type="radio"/>
+<div class="glass-surface p-md rounded-xl flex items-center justify-between transition-all duration-300 peer-checked:selection-glow peer-checked:bg-white/10 group-hover:bg-white/5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[32px]">payments</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-on-surface">Cash on Delivery</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Pay at your doorstep after service</p>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-white/20 flex items-center justify-center peer-checked:border-secondary">
+<div class="w-3 h-3 rounded-full bg-secondary opacity-0 transition-opacity peer-checked:opacity-100"></div>
+</div>
+</div>
+</label>
+</div>
+<!-- Security Badge -->
+<div class="mt-8 flex flex-col items-center justify-center text-on-surface-variant opacity-60 fade-in-up" style="animation-delay: 0.3s;">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">100% Secure Transaction</span>
+</div>
+<div class="w-full h-48 rounded-2xl overflow-hidden mt-4 glass-surface">
+<div class="w-full h-full" data-alt="A cinematic, ultra-wide abstract visualization of secure data flowing through a digital matrix. Thousands of tiny glowing particles in shades of cyan and electric blue form undulating waves, representing secure transactions and encrypted tunnels. The aesthetic is deep, dark, and highly professional, utilizing the luminous depth branding. No text or logos, just pure atmospheric data security energy." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBQpVqcDgaJ5Agzlq73cvTKaQnpPYHAcuSlRpCc4P-M5fuJW8yQX5RTox22-2EkS7e4x09wmlPrglPLHiyHbk-MIOlCJRcr38J0HCecGacLqSUoEUpxzuw09HPjDB9qMgvcjWHm5M1Kg8frlrfuvjqQMWmgEHwfPywgqoP8yhC8QtiJUygpIMeL5sYuYRYvEJQ4aWrjBwqzLVl2A8dfsSH9jOa6hazJOJ9rYeHDqlojtTiRKizUvM1xJus1wNsdk6fr6jFcsFJXCN4')"></div>
+</div>
+</div>
+</main>
+<!-- Bottom Action Shell -->
+<footer class="fixed bottom-0 left-0 w-full z-50 bg-white/10 backdrop-blur-[30px] border-t border-white/12 rounded-t-xl px-container-padding pb-8 pt-4">
+<div class="max-w-[800px] mx-auto flex flex-col gap-4">
+<div class="flex justify-between items-center px-2">
+<span class="font-label-md text-label-md text-on-surface-variant">Total Payable</span>
+<span class="font-title-md text-title-md text-on-surface">₹849.00</span>
+</div>
+<button class="primary-gradient-btn w-full h-14 rounded-xl flex items-center justify-center gap-3 shadow-[0_8px_32px_0_rgba(6,182,212,0.15)] group">
+<span class="font-title-md text-title-md text-on-primary-fixed">Pay Now</span>
+<span class="material-symbols-outlined text-on-primary-fixed group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</footer>
+<script>
+        // Micro-interaction for payment options selection
+        document.querySelectorAll('input[name="payment_method"]').forEach(input => {
+            input.addEventListener('change', function() {
+                // Remove visual selection from all
+                document.querySelectorAll('.glass-surface').forEach(card => {
+                    card.classList.remove('selection-glow', 'bg-white/10');
+                });
+                
+                // Add to selected
+                if (this.checked) {
+                    const container = this.nextElementSibling;
+                    container.classList.add('selection-glow', 'bg-white/10');
+                    
+                    // Trigger a tiny haptic-like scale effect on selection
+                    container.animate([
+                        { transform: 'scale(1)' },
+                        { transform: 'scale(0.98)' },
+                        { transform: 'scale(1)' }
+                    ], {
+                        duration: 200,
+                        easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                    });
+                }
+            });
+        });
+
+        // Background parallax effect
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+            document.querySelector('webgl-shader').style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+    </script>
+</body></html>

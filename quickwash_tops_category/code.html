@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuickWash | Tops Category Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0e1322;
+            color: #dee1f7;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .glass-glow-active {
+            border-color: #4cd7f6;
+            box-shadow: 0 0 16px rgba(76, 215, 246, 0.2);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-slide-up {
+            animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#0e1322",
+                        "error-container": "#93000a",
+                        "on-surface": "#dee1f7",
+                        "on-surface-variant": "#c2c6d4",
+                        "surface": "#0e1322",
+                        "outline-variant": "#424752",
+                        "on-background": "#dee1f7",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed-variant": "#004e5c",
+                        "inverse-on-surface": "#2b3040",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "on-error-container": "#ffdad6",
+                        "primary-container": "#1a6bcc",
+                        "on-secondary": "#003640",
+                        "background": "#0e1322",
+                        "on-primary": "#002f64",
+                        "on-tertiary-fixed-variant": "#5516be",
+                        "on-tertiary-fixed": "#23005c",
+                        "outline": "#8c919e",
+                        "surface-container-high": "#25293a",
+                        "on-primary-fixed": "#001b3e",
+                        "primary-fixed-dim": "#aac7ff",
+                        "secondary": "#4cd7f6",
+                        "surface-tint": "#aac7ff",
+                        "on-secondary-container": "#00424e",
+                        "on-tertiary-container": "#f5ecff",
+                        "tertiary-container": "#7c4ce6",
+                        "inverse-primary": "#005db9",
+                        "on-secondary-fixed": "#001f26",
+                        "on-tertiary": "#3c0091",
+                        "surface-container": "#1a1f2f",
+                        "surface-container-low": "#161b2b",
+                        "tertiary-fixed": "#e9ddff",
+                        "surface-container-lowest": "#090e1c",
+                        "on-error": "#690005",
+                        "surface-container-highest": "#2f3445",
+                        "primary-fixed": "#d6e3ff",
+                        "primary": "#aac7ff",
+                        "surface-bright": "#343949",
+                        "on-primary-fixed-variant": "#00458d",
+                        "secondary-container": "#03b5d3",
+                        "secondary-fixed": "#acedff",
+                        "inverse-surface": "#dee1f7",
+                        "surface-variant": "#2f3445",
+                        "tertiary": "#d0bcff",
+                        "tertiary-fixed-dim": "#d0bcff",
+                        "on-primary-container": "#eaefff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "container-padding": "20px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "base": "4px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", {"lineHeight": "30px", "fontWeight": "700"}],
+                        "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "400"}],
+                        "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
+                        "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-dim selection:bg-secondary/30">
+<!-- Top App Bar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-white/10 backdrop-blur-[20px] border-b border-white/12">
+<div class="flex items-center gap-4">
+<button class="p-2 -ml-2 rounded-full hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary drop-shadow-[0_0_8px_rgba(170,199,255,0.5)]">Tops 👕</h1>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined text-primary text-2xl">notifications</span>
+<div class="absolute -top-1 -right-1 w-5 h-5 bg-secondary text-on-secondary text-[10px] flex items-center justify-center rounded-full font-bold border-2 border-surface-dim">
+                2
+            </div>
+</div>
+</header>
+<main class="pt-24 pb-48 px-container-padding max-w-[800px] mx-auto space-y-10">
+<!-- Atmospheric Background Element -->
+<div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+<div class="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-secondary/10 rounded-full blur-[100px]"></div>
+</div>
+<!-- Section: Item Grid -->
+<section class="animate-slide-up" style="animation-delay: 0.1s;">
+<div class="flex justify-between items-end mb-4">
+<h2 class="font-title-md text-title-md text-primary">Select Items</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Scroll for more</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<!-- Item Card 1 (Active) -->
+<div class="glass-card glass-glow-active rounded-xl p-3 flex flex-col gap-3 relative overflow-hidden group transition-all duration-300">
+<div class="absolute top-2 right-2 z-10 w-6 h-6 bg-secondary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary text-sm font-bold" data-weight="fill">check</span>
+</div>
+<div class="h-32 rounded-lg bg-cover bg-center" data-alt="A studio photograph of a premium white cotton t-shirt neatly folded on a minimalist gray surface. Soft cinematic lighting highlights the fabric texture. The aesthetic is clean and high-end, consistent with a luxury laundry service interface." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCoEDkfWQummH5U0XPqJY4w6yGx1y2VR1LaNkz65X4mGA3QCbK9SBsyZT0nFOVxXH0Z6TeozDnnu1ybADeuYEqGn5vZ5Q4rZUN5pNS2MgPEzp25XPcj_zM3BGtakJQaJrq79VDnulQpx9EoWFw5B8UuWc9wlzWzdgBsyEq46EuryrCOZHj1ZRXUVLeOpZthktYhtOExASId_jVr00T0QU9rOC1abhAf76_dQPNUkG8Gr5c69QWe_5GbfezWNDIQ4Bb7YMwiW_1uaLE')"></div>
+<div class="space-y-1">
+<h3 class="font-label-md text-label-md text-on-surface">Casual T-Shirt</h3>
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-secondary font-bold">₹25/pc</span>
+</div>
+</div>
+<div class="flex items-center justify-between bg-white/5 rounded-lg p-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-sm text-outline">remove</span>
+</button>
+<span class="font-label-md text-label-md text-on-surface font-bold">2</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-md bg-secondary/20 hover:bg-secondary/30 transition-colors">
+<span class="material-symbols-outlined text-sm text-secondary">add</span>
+</button>
+</div>
+</div>
+<!-- Item Card 2 -->
+<div class="glass-card rounded-xl p-3 flex flex-col gap-3 relative overflow-hidden group transition-all duration-300 hover:border-white/20">
+<div class="h-32 rounded-lg bg-cover bg-center" data-alt="A perfectly ironed navy blue formal shirt hanging on a wooden hanger against a dark, elegant background. The lighting is sophisticated, casting gentle shadows and emphasizing the premium quality of the garment. The image fits a dark-mode luxury UI theme." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAlsfG4-aE1ubqtnQCLaft9YsSS0Otew99uq2nXPKliaki3465Z7Cda-87fFReUsIf4vD7BtvSatLin_gabs30LcyU2IKAYFVjX7RoTXJXLbF94XO8NJL5wWEiOcVx1DjhBPueMs4LgFChn5TmLED6H4wbKXc7oP1ZhlFa7X8IUm7icXi1qiP0Etp59Q2sGEnWd73m4hFo-lwAWhMqgM7Gis09Lm58GHZQ8XgPYxgzV-9FWO6obdd5XhnDBUfcZjDLJsKIJMQDPGmY')"></div>
+<div class="space-y-1">
+<h3 class="font-label-md text-label-md text-on-surface">Formal Shirt</h3>
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-secondary font-bold">₹45/pc</span>
+</div>
+</div>
+<div class="flex items-center justify-between bg-white/5 rounded-lg p-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-sm text-outline">remove</span>
+</button>
+<span class="font-label-md text-label-md text-on-surface">0</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-sm text-outline">add</span>
+</button>
+</div>
+</div>
+<!-- Item Card 3 -->
+<div class="glass-card rounded-xl p-3 flex flex-col gap-3 relative overflow-hidden group transition-all duration-300 hover:border-white/20">
+<div class="h-32 rounded-lg bg-cover bg-center" data-alt="A stylish polo shirt in a soft pastel blue tone, laid flat on a high-texture concrete surface. The lighting is bright and modern, creating a fresh, clean appearance. This visual represents professional apparel care in a sleek dark-themed laundry application." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCWT2GVxwL3FIiOGiEY-CTX9cHDfQpnCf1WT9R-myPXTTFi1qG3fEQ73jCV0iTalPXljF7DQlnPlydpHT1NNOsjdcGIeHvqbXlTYNAllkWpFDpDxv_epwLZegjmINgfHwaauogBMms8sUqwkrc_AAAnBkMtaMJJ217pwJfyikOiIKzIUWG_mQQHVBgq4yw4vl8lAsg_aGlpsE5HelDLFTdnj8ZyZU1c71xV_aWdaXwK7qyAwaITGaNSIhFQ6VmMbKWNpmnxvdpsYlM')"></div>
+<div class="space-y-1">
+<h3 class="font-label-md text-label-md text-on-surface">Polo T-Shirt</h3>
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-secondary font-bold">₹35/pc</span>
+</div>
+</div>
+<div class="flex items-center justify-between bg-white/5 rounded-lg p-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-sm text-outline">remove</span>
+</button>
+<span class="font-label-md text-label-md text-on-surface">0</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-sm text-outline">add</span>
+</button>
+</div>
+</div>
+<!-- Item Card 4 -->
+<div class="glass-card rounded-xl p-3 flex flex-col gap-3 relative overflow-hidden group transition-all duration-300 hover:border-white/20">
+<div class="h-32 rounded-lg bg-cover bg-center" data-alt="A cozy, high-quality knitted sweater in charcoal grey, shown in a close-up that highlights the intricate knit patterns. The setting is warm and inviting, using soft-focus depth to create a sense of premium care and fabric softness in a professional laundry app." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBeH3QwULJwL8i4H6WrNkdp8zNieGA9LjOSP59RmH3oZ30ZCTP6IgLCh42Iu_gfc20MoO6spFGJJGJHiM3bXEbQqgDkcJgIi-Wtx9PTBK8Tv2bGjS7nQeMm05yu1pIkvD-GNLUoh7V932Rq_DGWETrQi_DyWb9O9dVLDNw6EcABJ9Ozx-A_rVnUgZ5ylqNfngZk7c4FH_xnVOD9U8MIxSsTmShXDTV-6DY5tDp-Q1Kr4XjNhzstis6WK_VVgr8Fd92uJ9QWvEtoY1M')"></div>
+<div class="space-y-1">
+<h3 class="font-label-md text-label-md text-on-surface">Sweater</h3>
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-secondary font-bold">₹60/pc</span>
+</div>
+</div>
+<div class="flex items-center justify-between bg-white/5 rounded-lg p-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-sm text-outline">remove</span>
+</button>
+<span class="font-label-md text-label-md text-on-surface">0</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-sm text-outline">add</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Service Checklist -->
+<section class="animate-slide-up" style="animation-delay: 0.2s;">
+<h2 class="font-title-md text-title-md text-primary mb-4">Choose Services</h2>
+<div class="space-y-3">
+<!-- Service Card 1 -->
+<label class="glass-card rounded-2xl p-4 flex items-center gap-4 cursor-pointer transition-all duration-300 hover:bg-white/10 border-l-4 border-l-secondary">
+<div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center shrink-0">
+<span class="text-2xl">🫧</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h3 class="font-body-lg text-body-lg text-on-surface font-semibold">Wash &amp; Fold</h3>
+<span class="font-label-sm text-label-sm bg-secondary/20 text-secondary px-2 py-1 rounded-md">Incl. in base</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Gentle machine wash with eco-detergents and neat folding.</p>
+</div>
+<div class="w-6 h-6 rounded border-2 border-secondary flex items-center justify-center bg-secondary">
+<span class="material-symbols-outlined text-on-secondary text-sm font-bold" data-weight="fill">done</span>
+</div>
+<input checked="" class="hidden" type="checkbox"/>
+</label>
+<!-- Service Card 2 -->
+<label class="glass-card rounded-2xl p-4 flex items-center gap-4 cursor-pointer transition-all duration-300 hover:bg-white/10">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+<span class="text-2xl">🧥</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h3 class="font-body-lg text-body-lg text-on-surface font-semibold">Dry Clean</h3>
+<span class="font-label-sm text-label-sm bg-primary/20 text-primary px-2 py-1 rounded-md">+₹50/pc</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Professional solvent cleaning for delicate fabrics.</p>
+</div>
+<div class="w-6 h-6 rounded border-2 border-outline-variant flex items-center justify-center"></div>
+<input class="hidden" type="checkbox"/>
+</label>
+<!-- Service Card 3 -->
+<label class="glass-card rounded-2xl p-4 flex items-center gap-4 cursor-pointer transition-all duration-300 hover:bg-white/10 border-l-4 border-l-secondary/50">
+<div class="w-12 h-12 rounded-xl bg-orange-400/10 flex items-center justify-center shrink-0">
+<span class="text-2xl">🔥</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h3 class="font-body-lg text-body-lg text-on-surface font-semibold">Steam Press</h3>
+<span class="font-label-sm text-label-sm bg-secondary/20 text-secondary px-2 py-1 rounded-md">+₹15/pc</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Crisp steam ironing for a professional look.</p>
+</div>
+<div class="w-6 h-6 rounded border-2 border-secondary flex items-center justify-center bg-secondary">
+<span class="material-symbols-outlined text-on-secondary text-sm font-bold" data-weight="fill">done</span>
+</div>
+<input checked="" class="hidden" type="checkbox"/>
+</label>
+<!-- Service Card 4 -->
+<label class="glass-card rounded-2xl p-4 flex items-center gap-4 cursor-pointer transition-all duration-300 hover:bg-white/10">
+<div class="w-12 h-12 rounded-xl bg-error/10 flex items-center justify-center shrink-0">
+<span class="text-2xl">🧴</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h3 class="font-body-lg text-body-lg text-on-surface font-semibold">Stain Removal</h3>
+<span class="font-label-sm text-label-sm bg-error-container text-error px-2 py-1 rounded-md">+₹30/pc</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Targeted treatment for tough spots and spills.</p>
+</div>
+<div class="w-6 h-6 rounded border-2 border-outline-variant flex items-center justify-center"></div>
+<input class="hidden" type="checkbox"/>
+</label>
+</div>
+</section>
+<!-- Section: Smart Add-ons (Condition-based) -->
+<section class="animate-slide-up opacity-100 transition-all duration-500" id="addons-section" style="animation-delay: 0.3s;">
+<h2 class="font-title-md text-title-md text-primary mb-4">Smart Add-ons</h2>
+<div class="flex overflow-x-auto pb-4 gap-4 no-scrollbar custom-scrollbar">
+<!-- Add-on 1 -->
+<div class="glass-card min-w-[160px] rounded-xl p-3 flex flex-col gap-2 border-t-2 border-t-secondary/40">
+<span class="material-symbols-outlined text-secondary" data-weight="fill">water_drop</span>
+<h4 class="font-label-md text-label-md text-on-surface">Fabric Softener</h4>
+<p class="text-[10px] text-on-surface-variant leading-tight">Extra soft &amp; fluffy feel for all fabrics.</p>
+<div class="flex justify-between items-center mt-1">
+<span class="font-label-sm text-label-sm font-bold">₹10</span>
+<button class="w-6 h-6 rounded bg-secondary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-xs text-secondary">add</span>
+</button>
+</div>
+</div>
+<!-- Add-on 2 -->
+<div class="glass-card min-w-[160px] rounded-xl p-3 flex flex-col gap-2">
+<span class="material-symbols-outlined text-primary" data-weight="fill">air</span>
+<h4 class="font-label-md text-label-md text-on-surface">Scent Boost</h4>
+<p class="text-[10px] text-on-surface-variant leading-tight">Lavender infused fresh scent that lasts.</p>
+<div class="flex justify-between items-center mt-1">
+<span class="font-label-sm text-label-sm font-bold">₹15</span>
+<button class="w-6 h-6 rounded bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-xs text-primary">add</span>
+</button>
+</div>
+</div>
+<!-- Add-on 3 -->
+<div class="glass-card min-w-[160px] rounded-xl p-3 flex flex-col gap-2">
+<span class="material-symbols-outlined text-tertiary" data-weight="fill">eco</span>
+<h4 class="font-label-md text-label-md text-on-surface">Eco-Wash</h4>
+<p class="text-[10px] text-on-surface-variant leading-tight">Cold water &amp; biodegradable detergents.</p>
+<div class="flex justify-between items-center mt-1">
+<span class="font-label-sm text-label-sm font-bold">Free</span>
+<button class="w-6 h-6 rounded bg-tertiary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-xs text-tertiary">done</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Sticky Price Summary & CTA -->
+<div class="fixed bottom-0 left-0 w-full z-50 p-4 pt-0">
+<div class="max-w-[800px] mx-auto space-y-3">
+<!-- Summary Card -->
+<div class="glass-card rounded-2xl p-4 flex justify-between items-center shadow-[0_-8px_32px_0_rgba(6,182,212,0.15)] border-white/20">
+<div class="space-y-1">
+<p class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">shopping_bag</span>
+                        2 items selected
+                    </p>
+<p class="font-title-md text-title-md text-on-surface">Total: <span class="text-secondary">₹80.00</span></p>
+</div>
+<div class="text-right">
+<button class="text-secondary font-label-md text-label-md underline underline-offset-4">View Details</button>
+</div>
+</div>
+<!-- Bottom CTA -->
+<button class="w-full h-14 bg-gradient-to-r from-primary-container to-secondary-container rounded-2xl flex items-center justify-between px-6 font-semibold shadow-lg shadow-primary/20 active:scale-95 transition-all duration-200">
+<span class="font-body-lg text-body-lg text-on-primary-container">Add to Order</span>
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-on-primary-container">₹80</span>
+<span class="material-symbols-outlined text-on-primary-container">arrow_forward</span>
+</div>
+</button>
+</div>
+<div class="h-safe-bottom"></div>
+</div>
+<!-- Micro-interaction Script -->
+<script>
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('touchstart', () => {
+                card.style.transform = 'scale(0.98)';
+            });
+            card.addEventListener('touchend', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+
+        // Toggle add-on section visibility mock
+        window.addEventListener('scroll', () => {
+            const section = document.getElementById('addons-section');
+            const rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuickWash | Formals Category</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#7c4ce6",
+                        "on-primary-fixed": "#001b3e",
+                        "surface-container-low": "#161b2b",
+                        "surface-bright": "#343949",
+                        "primary-fixed": "#d6e3ff",
+                        "inverse-surface": "#dee1f7",
+                        "error-container": "#93000a",
+                        "on-background": "#dee1f7",
+                        "secondary-container": "#03b5d3",
+                        "background": "#0e1322",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "on-primary-container": "#eaefff",
+                        "outline": "#8c919e",
+                        "surface-dim": "#0e1322",
+                        "outline-variant": "#424752",
+                        "on-tertiary-fixed-variant": "#5516be",
+                        "surface-container-highest": "#2f3445",
+                        "on-surface": "#dee1f7",
+                        "surface-variant": "#2f3445",
+                        "surface-container-high": "#25293a",
+                        "on-secondary-fixed": "#001f26",
+                        "tertiary": "#d0bcff",
+                        "primary-container": "#1a6bcc",
+                        "on-error": "#690005",
+                        "inverse-primary": "#005db9",
+                        "surface-container-lowest": "#090e1c",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed": "#e9ddff",
+                        "secondary-fixed": "#acedff",
+                        "surface-tint": "#aac7ff",
+                        "surface-container": "#1a1f2f",
+                        "on-surface-variant": "#c2c6d4",
+                        "on-primary": "#002f64",
+                        "primary": "#aac7ff",
+                        "on-secondary-container": "#00424e",
+                        "on-tertiary-container": "#f5ecff",
+                        "inverse-on-surface": "#2b3040",
+                        "secondary": "#4cd7f6",
+                        "primary-fixed-dim": "#aac7ff",
+                        "tertiary-fixed-dim": "#d0bcff",
+                        "on-tertiary": "#3c0091",
+                        "surface": "#0e1322",
+                        "on-secondary-fixed-variant": "#004e5c",
+                        "on-secondary": "#003640",
+                        "on-tertiary-fixed": "#23005c",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#00458d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "xl": "32px",
+                        "lg": "24px",
+                        "base": "4px",
+                        "sm": "8px",
+                        "xs": "4px",
+                        "gutter": "16px",
+                        "container-padding": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "title-md": ["Inter"],
+                        "label-md": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0e1322;
+            color: #dee1f7;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .glass-card {
+            backdrop-filter: blur(25px);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(76, 215, 246, 0.3);
+            transform: translateY(-2px);
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #1a6bcc 0%, #4cd7f6 100%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0e1322;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen">
+<!-- Top AppBar (from JSON) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-white/10 backdrop-blur-[20px] border-b border-white/12 shadow-none transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]">
+<div class="flex items-center gap-3">
+<button class="material-symbols-outlined text-primary hover:bg-white/5 p-2 rounded-full transition-colors">arrow_back</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary drop-shadow-[0_0_8px_rgba(170,199,255,0.5)]">QuickWash</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:bg-white/5 p-2 rounded-full transition-colors">notifications</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/30">
+<img class="w-full h-full object-cover" data-alt="A professional close-up profile portrait of a modern executive in a sharp navy blue tailored suit, with soft studio lighting reflecting off a clean, futuristic glass background in deep blues and teals." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW_ig07rVBypyijNuTFXr6pWJHx8VqhxrqK98nWH4Fx3H6lIBKvthP7cZcct_tAsPg3FIhkSK_pbAXTCW-INeQOhzDpQ3e487iS0XjWA-O8G9tAUgWSlxDM1Ye8RZQUAfwIRfeCxQRUUss1VkpWVAcpJSyCFkp8OmqTAb7EUaECi_JOZgRL8z1GYfbQ-6udmAFfNInEJpsPpP3B_dNWNJ-5BjeUC7vOknasEke4Pci-KnolT_KBsPFOAcKXr13QWrnDTa5PstI6Pk"/>
+</div>
+</div>
+</header>
+<main class="flex-grow pt-24 pb-32 px-container-padding max-w-[800px] mx-auto w-full">
+<!-- Hero Section -->
+<section class="mb-lg">
+<div class="relative h-48 rounded-3xl overflow-hidden glass-panel group">
+<img class="w-full h-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-105" data-alt="A cinematic, high-detail shot of rows of impeccably dry-cleaned formal suits and crisp white shirts hanging in a futuristic, high-tech garment care facility. The lighting is cold and atmospheric with cyan lens flares and soft focus on the background textures of premium wool and silk." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy_xCumi1oKcTC-E2wK6acJTpzOCXkhHvRWvUMs8PfLy7c-oq9o7at7E3x09q9520fXzlFBcxqbRA4mP-capnONa31K0Aw5rQWOM4VofF6WG04ExU6VdhtgfD5FW6q8RCSv_PHh_RnmJKqJydF6OdThQ4H3UEUvH_xen15vju11sCFboz0W2Pp2Y8PLBL2gflxClxmxbcHrUQ9-Ss44IkdbZC1y6y1BbAc63iCr0bcy2r2Dvev7fpMTnu3rY64pmMp0_niNk-3QKk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6">
+<span class="px-3 py-1 bg-secondary/20 text-secondary text-label-sm font-label-sm rounded-full border border-secondary/30 backdrop-blur-md mb-2 inline-block">PREMIUM CARE</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface">Formals &amp; Suits</h2>
+</div>
+</div>
+</section>
+<!-- Item Grid (Suit, Blazer, Shirt, Tie) -->
+<section class="mb-lg">
+<div class="flex items-center justify-between mb-md">
+<h3 class="font-title-md text-title-md text-on-surface">Select Items</h3>
+<span class="text-label-md text-secondary">Price per piece</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Suit 3-Piece -->
+<div class="glass-card rounded-2xl p-md flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]">apparel</span>
+</div>
+<div>
+<p class="font-title-md text-body-lg text-on-surface">Suit (3-Piece)</p>
+<p class="text-label-md text-secondary">₹499</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-8 h-8 rounded-lg glass-panel flex items-center justify-center text-on-surface hover:bg-white/10 transition-colors">-</button>
+<span class="font-label-md text-on-surface">0</span>
+<button class="w-8 h-8 rounded-lg primary-gradient flex items-center justify-center text-on-primary-container shadow-[0_0_12px_rgba(76,215,246,0.4)] transition-transform active:scale-90">+</button>
+</div>
+</div>
+<!-- Suit 2-Piece -->
+<div class="glass-card rounded-2xl p-md flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]">checkroom</span>
+</div>
+<div>
+<p class="font-title-md text-body-lg text-on-surface">Suit (2-Piece)</p>
+<p class="text-label-md text-secondary">₹399</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-8 h-8 rounded-lg glass-panel flex items-center justify-center text-on-surface">-</button>
+<span class="font-label-md text-on-surface">0</span>
+<button class="w-8 h-8 rounded-lg primary-gradient flex items-center justify-center text-on-primary-container">+</button>
+</div>
+</div>
+<!-- Blazer -->
+<div class="glass-card rounded-2xl p-md flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]">west</span>
+</div>
+<div>
+<p class="font-title-md text-body-lg text-on-surface">Blazer</p>
+<p class="text-label-md text-secondary">₹249</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-8 h-8 rounded-lg glass-panel flex items-center justify-center text-on-surface">-</button>
+<span class="font-label-md text-on-surface">0</span>
+<button class="w-8 h-8 rounded-lg primary-gradient flex items-center justify-center text-on-primary-container">+</button>
+</div>
+</div>
+<!-- Formal Shirt -->
+<div class="glass-card rounded-2xl p-md flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]">laundry</span>
+</div>
+<div>
+<p class="font-title-md text-body-lg text-on-surface">Formal Shirt</p>
+<p class="text-label-md text-secondary">₹49</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-8 h-8 rounded-lg glass-panel flex items-center justify-center text-on-surface">-</button>
+<span class="font-label-md text-on-surface">0</span>
+<button class="w-8 h-8 rounded-lg primary-gradient flex items-center justify-center text-on-primary-container">+</button>
+</div>
+</div>
+<!-- Tie -->
+<div class="glass-card rounded-2xl p-md flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]">straighten</span>
+</div>
+<div>
+<p class="font-title-md text-body-lg text-on-surface">Tie</p>
+<p class="text-label-md text-secondary">₹25</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-8 h-8 rounded-lg glass-panel flex items-center justify-center text-on-surface">-</button>
+<span class="font-label-md text-on-surface">0</span>
+<button class="w-8 h-8 rounded-lg primary-gradient flex items-center justify-center text-on-primary-container">+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Service Checklist -->
+<section class="mb-lg">
+<h3 class="font-title-md text-title-md text-on-surface mb-md">Care Inclusions</h3>
+<div class="glass-panel rounded-2xl p-lg space-y-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary active-icon" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="font-label-md text-on-surface">Dry Clean</p>
+<p class="text-label-sm text-on-surface-variant">Solvent-based cleaning for delicate fabrics</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary active-icon" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="font-label-md text-on-surface">Ironing</p>
+<p class="text-label-sm text-on-surface-variant">Steam pressing for crisp silhouettes</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary active-icon" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="font-label-md text-on-surface">Premium Care</p>
+<p class="text-label-sm text-on-surface-variant">Individual inspection and fabric analysis</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary active-icon" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="font-label-md text-on-surface">Stain Removal</p>
+<p class="text-label-sm text-on-surface-variant">Targeted treatment for spot visibility</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Add-ons Section -->
+<section class="mb-lg">
+<h3 class="font-title-md text-title-md text-on-surface mb-md">Add-ons</h3>
+<div class="flex flex-wrap gap-3">
+<!-- Starch Finish -->
+<label class="relative flex-1 min-w-[160px] cursor-pointer">
+<input class="peer sr-only" type="checkbox"/>
+<div class="glass-card rounded-xl p-4 flex flex-col gap-2 border-2 border-transparent peer-checked:border-secondary peer-checked:bg-secondary/5 transition-all">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary">opacity</span>
+<span class="text-label-sm text-secondary font-bold">+₹20</span>
+</div>
+<p class="font-label-md text-on-surface">Starch Finish</p>
+<p class="text-[10px] leading-tight text-on-surface-variant">Extra stiffness for formal collars</p>
+</div>
+</label>
+<!-- Wrinkle Guard -->
+<label class="relative flex-1 min-w-[160px] cursor-pointer">
+<input class="peer sr-only" type="checkbox"/>
+<div class="glass-card rounded-xl p-4 flex flex-col gap-2 border-2 border-transparent peer-checked:border-secondary peer-checked:bg-secondary/5 transition-all">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary">waves</span>
+<span class="text-label-sm text-secondary font-bold">+₹35</span>
+</div>
+<p class="font-label-md text-on-surface">Wrinkle Guard</p>
+<p class="text-[10px] leading-tight text-on-surface-variant">Anti-crease treatment for travel</p>
+</div>
+</label>
+</div>
+</section>
+<!-- Aesthetic Filler Animation -->
+<section class="mt-xl relative h-32 rounded-3xl overflow-hidden glass-panel flex items-center justify-center">
+
+<div class="relative z-10 text-center">
+<p class="text-label-sm text-on-surface-variant italic">"Your formal attire, treated with surgical precision."</p>
+</div>
+</section>
+</main>
+<!-- Sticky Footer "Add to Order" -->
+<footer class="fixed bottom-0 left-0 w-full z-50 px-4 pb-safe bg-white/10 backdrop-blur-[30px] border-t border-white/12 h-24 flex items-center shadow-[0_-8px_32px_0_rgba(6,182,212,0.15)]">
+<div class="max-w-[800px] mx-auto w-full flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-label-sm text-on-surface-variant uppercase tracking-wider">Total Est.</span>
+<span class="text-headline-lg text-on-surface font-bold">₹0.00</span>
+</div>
+<button class="primary-gradient text-on-primary-container px-8 py-4 rounded-2xl font-bold flex items-center gap-2 shadow-[0_4px_20px_rgba(76,215,246,0.3)] hover:brightness-110 active:scale-95 transition-all">
+<span>Add to Order</span>
+<span class="material-symbols-outlined">shopping_basket</span>
+</button>
+</div>
+</footer>
+<!-- Native Interaction Micro-Scripts -->
+<script>
+        // Quantity selectors
+        document.querySelectorAll('.flex.items-center.gap-3').forEach(container => {
+            const plus = container.querySelector('button:last-child');
+            const minus = container.querySelector('button:first-child');
+            const valueDisplay = container.querySelector('span');
+            let count = 0;
+
+            plus.addEventListener('click', () => {
+                count++;
+                valueDisplay.textContent = count;
+                updateFooter();
+            });
+
+            minus.addEventListener('click', () => {
+                if(count > 0) {
+                    count--;
+                    valueDisplay.textContent = count;
+                    updateFooter();
+                }
+            });
+        });
+
+        function updateFooter() {
+            // Simplified logic for UI demonstration
+            const footerTotal = document.querySelector('footer .text-headline-lg');
+            let total = 0;
+            const items = document.querySelectorAll('.glass-card');
+            items.forEach(item => {
+                const priceMatch = item.querySelector('.text-secondary')?.textContent.match(/₹(\d+)/);
+                const count = parseInt(item.querySelector('span.font-label-md')?.textContent || 0);
+                if (priceMatch && count) {
+                    total += parseInt(priceMatch[1]) * count;
+                }
+            });
+            footerTotal.textContent = `₹${total.toFixed(2)}`;
+        }
+    </script>
+</body></html>

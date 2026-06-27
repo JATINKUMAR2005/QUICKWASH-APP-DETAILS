@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Bedding Category | QuickWash</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#7c4ce6",
+                    "on-primary-fixed": "#001b3e",
+                    "surface-container-low": "#161b2b",
+                    "surface-bright": "#343949",
+                    "primary-fixed": "#d6e3ff",
+                    "inverse-surface": "#dee1f7",
+                    "error-container": "#93000a",
+                    "on-background": "#dee1f7",
+                    "secondary-container": "#03b5d3",
+                    "background": "#0e1322",
+                    "secondary-fixed-dim": "#4cd7f6",
+                    "on-primary-container": "#eaefff",
+                    "outline": "#8c919e",
+                    "surface-dim": "#0e1322",
+                    "outline-variant": "#424752",
+                    "on-tertiary-fixed-variant": "#5516be",
+                    "surface-container-highest": "#2f3445",
+                    "on-surface": "#dee1f7",
+                    "surface-variant": "#2f3445",
+                    "surface-container-high": "#25293a",
+                    "on-secondary-fixed": "#001f26",
+                    "tertiary": "#d0bcff",
+                    "primary-container": "#1a6bcc",
+                    "on-error": "#690005",
+                    "inverse-primary": "#005db9",
+                    "surface-container-lowest": "#090e1c",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed": "#e9ddff",
+                    "secondary-fixed": "#acedff",
+                    "surface-tint": "#aac7ff",
+                    "surface-container": "#1a1f2f",
+                    "on-surface-variant": "#c2c6d4",
+                    "on-primary": "#002f64",
+                    "primary": "#aac7ff",
+                    "on-secondary-container": "#00424e",
+                    "on-tertiary-container": "#f5ecff",
+                    "inverse-on-surface": "#2b3040",
+                    "secondary": "#4cd7f6",
+                    "primary-fixed-dim": "#aac7ff",
+                    "tertiary-fixed-dim": "#d0bcff",
+                    "on-tertiary": "#3c0091",
+                    "surface": "#0e1322",
+                    "on-secondary-fixed-variant": "#004e5c",
+                    "on-secondary": "#003640",
+                    "on-tertiary-fixed": "#23005c",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#00458d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "xl": "32px",
+                    "lg": "24px",
+                    "base": "4px",
+                    "sm": "8px",
+                    "xs": "4px",
+                    "gutter": "16px",
+                    "container-padding": "20px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "title-md": ["Inter"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "30px", "fontWeight": "700"}],
+                    "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600"}],
+                    "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0e1322;
+            color: #dee1f7;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .glass-card {
+            backdrop-filter: blur(24px);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:active {
+            transform: scale(0.98);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .active-pill {
+            background: rgba(26, 107, 204, 0.3);
+            border-color: #4cd7f6;
+            color: #4cd7f6;
+            box-shadow: 0 0 12px rgba(76, 215, 246, 0.3);
+        }
+
+        .gradient-button {
+            background: linear-gradient(135deg, #aac7ff 0%, #4cd7f6 100%);
+            opacity: 0.9;
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gradient-button:active {
+            transform: scale(0.96);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .floating-glow {
+            box-shadow: 0 8px 32px 0 rgba(6, 182, 212, 0.15);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-up {
+            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- Hero Background Animation -->
+<div class="fixed inset-0 z-[-1] opacity-40">
+
+</div>
+<!-- Top AppBar (from JSON guidance) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-white/10 backdrop-blur-[20px] border-b border-white/12">
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary drop-shadow-[0_0_8px_rgba(170,199,255,0.5)]">QuickWash</h1>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-white/20">
+<img class="w-full h-full object-cover" data-alt="A close-up high-resolution profile portrait of a modern professional user, set against a soft bokeh background with cool blue and cyan lighting accents. The style is sleek and digital, matching a futuristic glassmorphism aesthetic with soft focus and professional clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDme_3jwqsTzrZ-mlbV8uyhGgGnFKbZf2EwxDQ6ESpZTLUCNBBzF5HbZDQwV4kgaDETpIZviRFcHCY2cof3IwHoIJ7pWSstOlinhIw9CEPSYNinZhDgv7Y-qQEwc9HpVVElCxF3PdIsliF01tDcvn_eRbvII38xxZP4ZdXmSJIoTMiIsFIB4pZVMOxd7q5VmoE8IA7MH73s5TwZ-iJjBs5a8TzpRVI3dDy_2GQhWUpqhMFs0nnGvRKlpLp5myf_w5dkWWLXnUiruyM"/>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+</div>
+</header>
+<main class="pt-24 px-container-padding max-w-[800px] mx-auto space-y-8 animate-fade-up">
+<!-- Category Header -->
+<section class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 rounded-full text-label-sm font-label-sm bg-primary/20 text-primary border border-primary/30 uppercase tracking-wider">Premium Care</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl text-on-surface">Bedding Essentials</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Expert care for your finest linens. Choose items to build your customized laundry plan.</p>
+</section>
+<!-- Service Checklist -->
+<section class="glass-panel rounded-xl p-md space-y-4">
+<h3 class="font-title-md text-title-md text-secondary">Care Services Included</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+<div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 border border-white/10">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-md text-label-md">Wash &amp; Fold</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 border border-white/10">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-md text-label-md">Dry Clean</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 border border-white/10">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-md text-label-md">Stain Removal</span>
+</div>
+</div>
+</section>
+<!-- Item Grid -->
+<section class="space-y-6">
+<div class="flex justify-between items-end">
+<h3 class="font-title-md text-title-md">Select Items</h3>
+<span class="text-label-sm text-on-surface-variant">4 Categories</span>
+</div>
+<!-- Bento Grid of Items -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Bed Sheet -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col">
+<div class="h-40 w-full relative">
+<img class="w-full h-full object-cover" data-alt="High-end aesthetic photograph of neatly folded premium cotton bed sheets in a minimalist bedroom. The lighting is soft and atmospheric with cyan and deep blue hues reflecting off silk-like textures. Glass-like clarity and deep shadows emphasize luxury and cleanliness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0cC1jBhulwouCGbKwq3bOY3FHPQHh3QuylN-bj5zbGAomy0_oyJr0PFHa0qy-5LRuP3j9q0RC8fFjN5cCdaEUhmDj1ncSgQUFKK8q-XpDgKmWWBIFa6cAY4MVXuiBGmJ2aqhkayR25QqbMd8iYd5ifNf5OqOxwhKLqANyzeFx69eBVezQQJcY1IALY2dOnx0oySjgM__r2xEsKdVTuj8YpWQW4Znd_vU5hyUL90CmpWcr2moWjNNLNEFglHldGXD6Sx84gs6MSAY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+</div>
+<div class="p-4 space-y-4">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-title-md text-title-md">Bed Sheets</h4>
+<p class="text-label-sm text-on-surface-variant">Flat or Fitted</p>
+</div>
+<span class="font-title-md text-primary">$12.00</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1.5 rounded-lg border border-white/10 text-label-sm active-pill" onclick="toggleSize(this)">Single</button>
+<button class="px-3 py-1.5 rounded-lg border border-white/10 text-label-sm hover:bg-white/5" onclick="toggleSize(this)">Double</button>
+<button class="px-3 py-1.5 rounded-lg border border-white/10 text-label-sm hover:bg-white/5" onclick="toggleSize(this)">King</button>
+</div>
+</div>
+</div>
+<!-- Quilt / Blanket -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col">
+<div class="h-40 w-full relative">
+<img class="w-full h-full object-cover" data-alt="A thick, plush white quilt draped over a modern designer bed. The scene is illuminated with a cool, futuristic blue light that highlights the stitching and texture. Minimalist interior design with glass furniture in the background, creating a serene, high-tech sanctuary feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJzzbZumwCUFAK7Zm0L42N4Q1XWUJFLVNm9PU7Qvb7XG5kl_LEqm4bjMqgRHhpu5xIsxjQd_d5OQ2wwKWvXDLrRSkxa-vWPikO7BURyKyP2wBDQescTHlORzk9M2IYbvUadvyKu_ziB6lf6-Z-A7eD-GoLL1sDNzAZ8I21RsFMattvnDTbIJKgQ6GEBnyjI0AMoS2WlJji_IAa2G4JPlTczRRCHzjpU8T8TAADQMbv5vJx0BGuLNx9gvDLxNWz72Ndbo_dP3k_txI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+</div>
+<div class="p-4 space-y-4">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-title-md text-title-md">Quilt &amp; Blanket</h4>
+<p class="text-label-sm text-on-surface-variant">Heavy Duty Care</p>
+</div>
+<span class="font-title-md text-primary">$24.00</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1.5 rounded-lg border border-white/10 text-label-sm hover:bg-white/5" onclick="toggleSize(this)">Single</button>
+<button class="px-3 py-1.5 rounded-lg border border-white/10 text-label-sm active-pill" onclick="toggleSize(this)">Double</button>
+<button class="px-3 py-1.5 rounded-lg border border-white/10 text-label-sm hover:bg-white/5" onclick="toggleSize(this)">King</button>
+</div>
+</div>
+</div>
+<!-- Pillow Covers -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col">
+<div class="h-32 w-full relative">
+<img class="w-full h-full object-cover" data-alt="Close-up of luxury silk and satin pillowcases stacked in a modern, dark aesthetic room. Sharp focus on fabric weave with subtle luminous glows along the edges. The color palette is midnight blue with highlights of cyan and silver, suggesting ultimate freshness and hygiene." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8IInmH_wryM1vFoU-8EI1NxNtsMiGipHK9JMiLRysWiU1R2IHILP7KefmbBPoEQS_duPoKFkmWNurADd_TDISOpUJgtM_U52qH-hrXXb-nj36pZGF13kVt1V1leUK7HOZllQA37sW3vBA9vGxwr7pjt98B3O28Gnchmo-yPu2SJib4NWhz-WGTzUlfLR58INuhEN8hIWGO2SBK0x5nHL_0Lyzz7D-XrcklPzTOtaU8OhrmrLtOZpZpOQh4VIFMxYm8B6tJdq41zM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+</div>
+<div class="p-4 space-y-4">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-title-md text-title-md">Pillow Covers</h4>
+<p class="text-label-sm text-on-surface-variant">Sold in pairs</p>
+</div>
+<span class="font-title-md text-primary">$6.00</span>
+</div>
+<div class="flex items-center gap-4 bg-white/5 rounded-lg p-2 border border-white/10 w-fit">
+<button class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white/10"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="font-title-md">2</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white/10"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+</div>
+</div>
+<!-- Curtains -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col">
+<div class="h-32 w-full relative">
+<img class="w-full h-full object-cover" data-alt="Elegant floor-to-ceiling drapes in a high-rise apartment overlooking a futuristic city at night. The curtains are a heavy velvet material with deep folds, illuminated by the city's neon blue and purple lights. The atmosphere is quiet, luxurious, and technologically sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7hJnXYJKOqnKOE6olTOahgG1rP1kTG1p3HByp8c9bADxDFw6VN03y2EaFnq9NpCDMbxgT1dLP0-OnUz3GQ3ZdiLHJ9Db1jNNEaIxr86MVwqXd9-APfjRV9FzUx6rAU1GNQfSdubVnhMhd-BHUIUdeHp5mI_t5zz3Yz-s74KlHco1QPpCqp0KevPM8GJLwlt1nWK0uKKx5862IYAhcWKKS-CPTVG37CbM1q6F-IoXwT4SHIiO9Lryd41VLTGKAJB1TDZ6tYypxkyo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+</div>
+<div class="p-4 space-y-4">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-title-md text-title-md">Curtains</h4>
+<p class="text-label-sm text-on-surface-variant">Steam Pressed</p>
+</div>
+<span class="font-title-md text-primary">$18.00</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1.5 rounded-lg border border-white/10 text-label-sm hover:bg-white/5" onclick="toggleSize(this)">Standard</button>
+<button class="px-3 py-1.5 rounded-lg border border-white/10 text-label-sm hover:bg-white/5" onclick="toggleSize(this)">Floor Length</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Add-ons -->
+<section class="space-y-4">
+<h3 class="font-title-md text-title-md">Enhance Your Order</h3>
+<div class="space-y-3">
+<!-- Anti-Bacterial -->
+<label class="flex items-center justify-between glass-card p-4 rounded-xl cursor-pointer hover:border-secondary transition-all">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-tertiary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">sanitizer</span>
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold text-on-surface">Anti-Bacterial Wash</p>
+<p class="text-label-sm text-on-surface-variant">Medical-grade disinfection</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-label-md text-secondary">+$4.50</span>
+<input class="w-6 h-6 rounded border-white/20 bg-white/5 text-secondary focus:ring-secondary" type="checkbox"/>
+</div>
+</label>
+<!-- Eco-Friendly -->
+<label class="flex items-center justify-between glass-card p-4 rounded-xl cursor-pointer hover:border-secondary transition-all">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-secondary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold text-on-surface">Eco-Friendly</p>
+<p class="text-label-sm text-on-surface-variant">Organic detergents only</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-label-md text-secondary">FREE</span>
+<input class="w-6 h-6 rounded border-white/20 bg-white/5 text-secondary focus:ring-secondary" type="checkbox"/>
+</div>
+</label>
+</div>
+</section>
+</main>
+<!-- Sticky Footer CTA -->
+<footer class="fixed bottom-0 left-0 w-full z-50 bg-white/10 backdrop-blur-[30px] border-t border-white/12 pb-safe px-container-padding h-24 flex items-center justify-between floating-glow">
+<div class="flex flex-col">
+<span class="text-label-sm text-on-surface-variant">Estimated Total</span>
+<span class="text-headline-lg-mobile text-primary font-bold tracking-tight">$46.50</span>
+</div>
+<button class="gradient-button px-xl py-3 rounded-full text-on-primary-fixed font-bold flex items-center gap-2 shadow-lg shadow-primary/20">
+<span>Add to Order</span>
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+</footer>
+<!-- Bottom Nav for persistence (optional based on JSON but prioritizing the sticky footer for this specific category flow) -->
+<!-- Determined suppression of BottomNavBar to prioritize the "Add to Order" transactional footer as per UX guidelines -->
+<script>
+        function toggleSize(btn) {
+            // Find all sibling buttons in the same container
+            const container = btn.parentElement;
+            const buttons = container.querySelectorAll('button');
+            
+            buttons.forEach(b => {
+                b.classList.remove('active-pill');
+                b.classList.add('hover:bg-white/5');
+            });
+            
+            btn.classList.add('active-pill');
+            btn.classList.remove('hover:bg-white/5');
+
+            // Feedback pulse
+            btn.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                btn.style.transform = 'scale(1)';
+            }, 100);
+        }
+
+        // Simple parallax effect for glass cards on scroll
+        window.addEventListener('scroll', () => {
+            const cards = document.querySelectorAll('.glass-card');
+            const scrolled = window.pageYOffset;
+            cards.forEach((card, index) => {
+                const speed = 0.05 + (index * 0.01);
+                card.style.transform = `translateY(${-scrolled * speed}px)`;
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuickWash - Bottoms Category</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0e1322;
+            color: #dee1f7;
+            overflow-x: hidden;
+        }
+        .glass-surface {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .glass-card {
+            backdrop-filter: blur(24px);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-pill {
+            backdrop-filter: blur(12px);
+            background: rgba(170, 199, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-cyan {
+            box-shadow: 0 8px 32px 0 rgba(6, 182, 212, 0.15);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #1a6bcc 0%, #03b5d3 100%);
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-primary:active {
+            transform: scale(0.96);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        .animate-fade-up {
+            animation: fadeUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#7c4ce6",
+                        "on-primary-fixed": "#001b3e",
+                        "surface-container-low": "#161b2b",
+                        "surface-bright": "#343949",
+                        "primary-fixed": "#d6e3ff",
+                        "inverse-surface": "#dee1f7",
+                        "error-container": "#93000a",
+                        "on-background": "#dee1f7",
+                        "secondary-container": "#03b5d3",
+                        "background": "#0e1322",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "on-primary-container": "#eaefff",
+                        "outline": "#8c919e",
+                        "surface-dim": "#0e1322",
+                        "outline-variant": "#424752",
+                        "on-tertiary-fixed-variant": "#5516be",
+                        "surface-container-highest": "#2f3445",
+                        "on-surface": "#dee1f7",
+                        "surface-variant": "#2f3445",
+                        "surface-container-high": "#25293a",
+                        "on-secondary-fixed": "#001f26",
+                        "tertiary": "#d0bcff",
+                        "primary-container": "#1a6bcc",
+                        "on-error": "#690005",
+                        "inverse-primary": "#005db9",
+                        "surface-container-lowest": "#090e1c",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed": "#e9ddff",
+                        "secondary-fixed": "#acedff",
+                        "surface-tint": "#aac7ff",
+                        "surface-container": "#1a1f2f",
+                        "on-surface-variant": "#c2c6d4",
+                        "on-primary": "#002f64",
+                        "primary": "#aac7ff",
+                        "on-secondary-container": "#00424e",
+                        "on-tertiary-container": "#f5ecff",
+                        "inverse-on-surface": "#2b3040",
+                        "secondary": "#4cd7f6",
+                        "primary-fixed-dim": "#aac7ff",
+                        "tertiary-fixed-dim": "#d0bcff",
+                        "on-tertiary": "#3c0091",
+                        "surface": "#0e1322",
+                        "on-secondary-fixed-variant": "#004e5c",
+                        "on-secondary": "#003640",
+                        "on-tertiary-fixed": "#23005c",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#00458d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "xl": "32px",
+                        "lg": "24px",
+                        "base": "4px",
+                        "sm": "8px",
+                        "xs": "4px",
+                        "gutter": "16px",
+                        "container-padding": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "title-md": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "30px", "fontWeight": "700"}],
+                        "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600"}],
+                        "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background min-h-screen pb-32">
+<!-- Top App Bar (Shared Component) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-white/10 backdrop-blur-[20px] border-b border-white/12">
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary drop-shadow-[0_0_8px_rgba(170,199,255,0.5)]">Bottoms</h1>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-white/12">
+<img class="w-full h-full object-cover" data-alt="A sleek, high-end profile portrait of a modern user against a dark, tech-focused background. The lighting is moody with subtle blue rim-lighting, emphasizing a futuristic and professional aesthetic. The skin is clear and the overall feel is high-resolution digital art for a premium application user interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsCpFOlKRK9mrGJfSZKu1HBF9QM9BhSNsnjFaQeThMJrHMziL6_aPkyUp_g6eYHyWuejj6VlMNInRkQMHWtlPgw-8l8qtyGmF-3pF11VaV4xQL8mXEbFDf1nP2NcOslHUZgaBZfJRpowoALi21qP02oFB_Er2wq7FVpeWTtiYn74g6SldnGDjbkjkeUYlTgRDecz0hDTzV1Us4EUJsNXl0KS2yvbDUffDZ9ZsMIN2OGM1buARclJKsuyNF8DNajvusCCiSkgC3ru0"/>
+</div>
+</header>
+<main class="pt-24 px-container-padding max-w-[800px] mx-auto">
+<!-- Hero Background Shader -->
+<div class="fixed inset-0 -z-10 opacity-30">
+
+</div>
+<!-- Section: Item Grid -->
+<section class="mb-xl animate-fade-up">
+<div class="flex items-center justify-between mb-md">
+<h2 class="font-title-md text-title-md text-on-surface">Select Items</h2>
+<span class="font-label-md text-label-md text-secondary">4 Categories</span>
+</div>
+<div class="grid grid-cols-2 gap-md">
+<!-- Jeans Card -->
+<div class="glass-card rounded-xl p-md flex flex-col items-center text-center relative overflow-hidden group">
+<div class="w-full h-24 mb-md rounded-lg overflow-hidden glass-pill">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Close up high-resolution shot of premium denim fabric showing detailed texture and blue indigo stitching. The lighting is professional studio style with soft highlights on the curves of the folded fabric. Dark background to match the luxurious dark-mode UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8n8LgR9cR4JkSW4PyA8pONuGge2XY4Y_Y3-PSQGZFGJjQ54mKCZNySU7_3lPd0yBwCzMTNQJwMgvENENH3pLLjUk9kNiTSas8IQwWFvu7wH-W0h2GLm0uXIYusG-N44D51E9XWJf6iyeScTlcPMh0jXBVVN8wKwBgWecR1qVvXE27Nxdl6NwA1cQTpsxHCxesmCJzYNeMdCz-g6G8ufU3sQzU5CyA3AiCh_I5Mxz_SEnMT_XVOw2MMeCY7YF9WmigCXlrXCy4zOQ"/>
+</div>
+<h3 class="font-title-md text-on-surface">Jeans</h3>
+<p class="font-label-md text-primary mb-md">₹49 / unit</p>
+<div class="flex items-center gap-base glass-pill rounded-full p-1">
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 text-on-surface transition-colors" onclick="decrement('q-jeans')">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="w-8 text-center font-bold text-secondary" id="q-jeans">0</span>
+<button class="w-8 h-8 rounded-full flex items-center justify-center bg-primary text-on-primary transition-colors" onclick="increment('q-jeans')">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+<!-- Trousers Card -->
+<div class="glass-card rounded-xl p-md flex flex-col items-center text-center relative overflow-hidden group">
+<div class="w-full h-24 mb-md rounded-lg overflow-hidden glass-pill">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Elegant charcoal grey wool trousers folded neatly, highlighting the sharp crease and high-quality material weave. Soft cinematic lighting with deep shadows to create depth and a sense of luxury. Minimalist and clean composition for a high-end service app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhQ5iryrb0-uqV-AFDpdzvV0c_Wy1h_Qs7kKB-bLEegT4X33fBKV3vcy69_VJWlpLx2yqaA4zZSJYc5vJky_g-ZBmSQ7GHh3T3b876qHahAbfEzvNL5n3opTn2-35zjhhLopo3y4w0gmr1uvvveK2WL1jSVPjl4ZEk6nhr8awhtF6ZFfI7pQZBgwnbyymEULcqcErYkmYvJrCm_GyEMOHuDeH32gqsdDvAiWUDjYmTlK0D6va0nQ26v-8jSHD5SXK75QECIj7hsac"/>
+</div>
+<h3 class="font-title-md text-on-surface">Trousers</h3>
+<p class="font-label-md text-primary mb-md">₹45 / unit</p>
+<div class="flex items-center gap-base glass-pill rounded-full p-1">
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 text-on-surface transition-colors" onclick="decrement('q-trousers')">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="w-8 text-center font-bold text-secondary" id="q-trousers">0</span>
+<button class="w-8 h-8 rounded-full flex items-center justify-center bg-primary text-on-primary transition-colors" onclick="increment('q-trousers')">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+<!-- Shorts Card -->
+<div class="glass-card rounded-xl p-md flex flex-col items-center text-center relative overflow-hidden group">
+<div class="w-full h-24 mb-md rounded-lg overflow-hidden glass-pill">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Fashionable khaki cotton shorts laid flat against a dark slate background. The lighting is modern and vibrant, catching the edges of the pockets and waist belt loops. Part of a futuristic app interface, clean lines and sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4ci-23BT7HEHkTaXUsArV2LjGf7a2q9HpcdSZYyU1lGOJAOcAvAZAWaCZwlHDsJcd_vKb39rMQ6y7KGDayoEpPG5rigQCySFS1dlGafBr5qC60_cEjPxtZVKIyE9Ky5iCmyHvj3LQaNvtvCTqU7Rl1uZUZBoZ-6VrenFc63q8oxm9l0FTWuc_QcD2n0IvMPZIxHaBhXqzJuRJuKdm_3CYRxDM9jrMA8QYivcuAY6kzapmQTwJC037M3U_dbA2Nrfu9EIyvHRxXek"/>
+</div>
+<h3 class="font-title-md text-on-surface">Shorts</h3>
+<p class="font-label-md text-primary mb-md">₹35 / unit</p>
+<div class="flex items-center gap-base glass-pill rounded-full p-1">
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 text-on-surface transition-colors" onclick="decrement('q-shorts')">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="w-8 text-center font-bold text-secondary" id="q-shorts">0</span>
+<button class="w-8 h-8 rounded-full flex items-center justify-center bg-primary text-on-primary transition-colors" onclick="increment('q-shorts')">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+<!-- Skirts Card -->
+<div class="glass-card rounded-xl p-md flex flex-col items-center text-center relative overflow-hidden group">
+<div class="w-full h-24 mb-md rounded-lg overflow-hidden glass-pill">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A flowy, pleated navy blue skirt demonstrating movement and light refraction. The fabric looks soft and premium. Illuminated by a cool, cyan ambient light that reflects the glassmorphism theme of the overall UI design. High detail and crisp quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6ej0p93dDQiiSg--xHzl4b713GxKReogjV04A2_6m5ZVokM7K0asNfp2vhsvzdXNfEQyxTMHVsq8Y3isbdTc3BY0A7ZVX3EYM0jbmmZA9mOpQ_nn6NRQMOX7GKgQdIGJI9SDG06PdskPUgfByHQjlWN34xbQWC0SLFZleERkT8c03cosSfCsPuJx9-9Nr9Gmed3TbvUWlQoJCtSWBC4KeJd274Vbe8Q73nHsVCm6YPiqlnjiaqQyqkQ2d8pLAtJLYtf5De1CHeC0"/>
+</div>
+<h3 class="font-title-md text-on-surface">Skirts</h3>
+<p class="font-label-md text-primary mb-md">₹39 / unit</p>
+<div class="flex items-center gap-base glass-pill rounded-full p-1">
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 text-on-surface transition-colors" onclick="decrement('q-skirts')">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="w-8 text-center font-bold text-secondary" id="q-skirts">0</span>
+<button class="w-8 h-8 rounded-full flex items-center justify-center bg-primary text-on-primary transition-colors" onclick="increment('q-skirts')">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Service Checklist -->
+<section class="mb-xl animate-fade-up" style="animation-delay: 0.1s;">
+<h2 class="font-title-md text-title-md text-on-surface mb-md">Care Services</h2>
+<div class="space-y-sm">
+<label class="glass-card rounded-xl px-md py-4 flex items-center justify-between cursor-pointer group transition-all hover:bg-white/10">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">local_laundry_service</span>
+</div>
+<span class="font-body-lg text-on-surface">Wash &amp; Fold</span>
+</div>
+<input checked="" class="w-6 h-6 rounded border-white/12 bg-white/5 text-secondary focus:ring-secondary transition-all" type="checkbox"/>
+</label>
+<label class="glass-card rounded-xl px-md py-4 flex items-center justify-between cursor-pointer group transition-all hover:bg-white/10">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-secondary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">dry_cleaning</span>
+</div>
+<span class="font-body-lg text-on-surface">Dry Clean</span>
+</div>
+<input class="w-6 h-6 rounded border-white/12 bg-white/5 text-secondary focus:ring-secondary transition-all" type="checkbox"/>
+</label>
+<label class="glass-card rounded-xl px-md py-4 flex items-center justify-between cursor-pointer group transition-all hover:bg-white/10">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-tertiary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary">iron</span>
+</div>
+<span class="font-body-lg text-on-surface">Ironing</span>
+</div>
+<input class="w-6 h-6 rounded border-white/12 bg-white/5 text-secondary focus:ring-secondary transition-all" type="checkbox"/>
+</label>
+<label class="glass-card rounded-xl px-md py-4 flex items-center justify-between cursor-pointer group transition-all hover:bg-white/10">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-error/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-error">grain</span>
+</div>
+<span class="font-body-lg text-on-surface">Stain Removal</span>
+</div>
+<input class="w-6 h-6 rounded border-white/12 bg-white/5 text-secondary focus:ring-secondary transition-all" type="checkbox"/>
+</label>
+</div>
+</section>
+<!-- Section: Add-ons (Bento Style) -->
+<section class="mb-xl animate-fade-up" style="animation-delay: 0.2s;">
+<h2 class="font-title-md text-title-md text-on-surface mb-md">Premium Add-ons</h2>
+<div class="grid grid-cols-12 gap-md">
+<button class="col-span-7 glass-card rounded-2xl p-md flex flex-col justify-between text-left group hover:bg-white/10 transition-all border-secondary/20 border-l-4">
+<span class="material-symbols-outlined text-secondary mb-base">opacity</span>
+<div>
+<p class="font-title-md text-on-surface">Fabric Softener</p>
+<p class="font-label-md text-on-surface-variant">+ ₹15 / load</p>
+</div>
+</button>
+<button class="col-span-5 glass-card rounded-2xl p-md flex flex-col justify-between text-left group hover:bg-white/10 transition-all border-tertiary/20 border-l-4">
+<span class="material-symbols-outlined text-tertiary mb-base">filter_vintage</span>
+<div>
+<p class="font-title-md text-on-surface">Scent Boost</p>
+<p class="font-label-md text-on-surface-variant">+ ₹10</p>
+</div>
+</button>
+</div>
+</section>
+</main>
+<!-- Sticky Footer -->
+<footer class="fixed bottom-0 left-0 w-full z-[60] p-md glass-surface border-t border-white/12 flex items-center justify-between gap-md rounded-t-2xl shadow-[0_-8px_32px_0_rgba(6,182,212,0.15)]">
+<div class="flex flex-col">
+<span class="font-label-md text-on-surface-variant">Order Total</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-secondary font-bold" id="total-price">₹0</span>
+</div>
+<button class="btn-primary flex-1 h-14 rounded-xl font-title-md text-white flex items-center justify-center gap-2 glow-cyan">
+<span>Add to Order</span>
+<span class="material-symbols-outlined">shopping_basket</span>
+</button>
+</footer>
+<!-- Bottom Navigation Bar (Shared Component) -->
+<!-- Note: Hidden on this sub-page to prioritize the "Add to Order" action as per Shell Visibility rules -->
+<script>
+        const prices = {
+            'q-jeans': 49,
+            'q-trousers': 45,
+            'q-shorts': 35,
+            'q-skirts': 39
+        };
+
+        const quantities = {
+            'q-jeans': 0,
+            'q-trousers': 0,
+            'q-shorts': 0,
+            'q-skirts': 0
+        };
+
+        function increment(id) {
+            quantities[id]++;
+            document.getElementById(id).textContent = quantities[id];
+            updateTotal();
+            triggerHaptic();
+        }
+
+        function decrement(id) {
+            if (quantities[id] > 0) {
+                quantities[id]--;
+                document.getElementById(id).textContent = quantities[id];
+                updateTotal();
+                triggerHaptic();
+            }
+        }
+
+        function updateTotal() {
+            let total = 0;
+            for (const key in quantities) {
+                total += quantities[key] * prices[key];
+            }
+            document.getElementById('total-price').textContent = `₹${total}`;
+        }
+
+        function triggerHaptic() {
+            if (window.navigator.vibrate) {
+                window.navigator.vibrate(10);
+            }
+        }
+
+        // Initialize
+        updateTotal();
+    </script>
+</body></html>

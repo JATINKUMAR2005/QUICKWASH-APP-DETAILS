@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>QuickWash 2.0 - Luminous Depth</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#0e1322",
+                    "error-container": "#93000a",
+                    "on-surface": "#dee1f7",
+                    "on-surface-variant": "#c2c6d4",
+                    "surface": "#0e1322",
+                    "outline-variant": "#424752",
+                    "on-background": "#dee1f7",
+                    "error": "#ffb4ab",
+                    "on-secondary-fixed-variant": "#004e5c",
+                    "inverse-on-surface": "#2b3040",
+                    "secondary-fixed-dim": "#4cd7f6",
+                    "on-error-container": "#ffdad6",
+                    "primary-container": "#1a6bcc",
+                    "on-secondary": "#003640",
+                    "background": "#0e1322",
+                    "on-primary": "#002f64",
+                    "on-tertiary-fixed-variant": "#5516be",
+                    "on-tertiary-fixed": "#23005c",
+                    "outline": "#8c919e",
+                    "surface-container-high": "#25293a",
+                    "on-primary-fixed": "#001b3e",
+                    "primary-fixed-dim": "#aac7ff",
+                    "secondary": "#4cd7f6",
+                    "surface-tint": "#aac7ff",
+                    "on-secondary-container": "#00424e",
+                    "on-tertiary-container": "#f5ecff",
+                    "tertiary-container": "#7c4ce6",
+                    "inverse-primary": "#005db9",
+                    "on-secondary-fixed": "#001f26",
+                    "on-tertiary": "#3c0091",
+                    "surface-container": "#1a1f2f",
+                    "surface-container-low": "#161b2b",
+                    "tertiary-fixed": "#e9ddff",
+                    "surface-container-lowest": "#090e1c",
+                    "on-error": "#690005",
+                    "surface-container-highest": "#2f3445",
+                    "primary-fixed": "#d6e3ff",
+                    "primary": "#aac7ff",
+                    "surface-bright": "#343949",
+                    "on-primary-fixed-variant": "#00458d",
+                    "secondary-container": "#03b5d3",
+                    "secondary-fixed": "#acedff",
+                    "inverse-surface": "#dee1f7",
+                    "surface-variant": "#2f3445",
+                    "tertiary": "#d0bcff",
+                    "tertiary-fixed-dim": "#d0bcff",
+                    "on-primary-container": "#eaefff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "container-padding": "20px",
+                    "lg": "24px",
+                    "xs": "4px",
+                    "xl": "32px",
+                    "sm": "8px",
+                    "base": "4px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "title-md": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", {"lineHeight": "30px", "fontWeight": "700"}],
+                    "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "400"}],
+                    "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
+                    "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background: radial-gradient(circle at top left, #0A1535, #0A0F1E);
+            color: #dee1f7;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .noise-overlay {
+            position: fixed;
+            inset: 0;
+            background: url("https://grainy-gradients.vercel.app/noise.svg");
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .glass-glow-blue {
+            box-shadow: inset 4px 0 12px -2px rgba(76, 215, 246, 0.3);
+            border-left: 3px solid #4cd7f6;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="pb-24">
+<div class="noise-overlay"></div>
+<!-- Top App Bar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-white/10 backdrop-blur-[20px] border-b border-white/12">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full border border-primary/30 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A cinematic close-up of a stylish young male profile, bathed in cool cyan and deep navy neon lighting. The background is a soft, out-of-focus futuristic cityscape with glass reflections. High-resolution digital photography style, clean skin textures, professional aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKRTE9bK_hyA9-2U9HmReb_l9KQ4vQGsWt2sqIRc3YTyfdcFE6NdId_kV9OhrshxJYWakj7S2pf-fcloGfukf4lCIGH6Wvilgvvg6ubQrnI7f1FBhHh3iEqKgfzxIQPM9_0kWRjC5nZU26sSkNZfL06nqJtOT5EsAbxJnjvMHc5AVYcx-OFwPlYrHYsP6c75-ye-6drm2tfhDitWUUK90-PPloCAwNNc4CYcwKnnTG0mN0_RH4nq98-sPICSlJhgjwYqt8t_AZRl0"/>
+</div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-extrabold text-primary drop-shadow-[0_0_8px_rgba(170,199,255,0.5)]">QuickWash</span>
+</div>
+<div class="relative p-2 rounded-full hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined text-primary text-2xl">notifications</span>
+<span class="absolute top-2 right-2 w-2.5 h-2.5 bg-secondary rounded-full border-2 border-surface-dim"></span>
+</div>
+</header>
+<main class="mt-20 px-container-padding space-y-6 relative z-10">
+<!-- Hero Section -->
+<section class="space-y-4">
+<div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Good Morning, Jatin 👋</h1>
+<p class="font-body-md text-on-surface-variant">What needs cleaning today?</p>
+</div>
+<!-- Glass Pill Search Bar -->
+<div class="glass-panel flex items-center px-4 py-3 rounded-full border-white/20 focus-within:border-secondary transition-all">
+<span class="material-symbols-outlined text-on-surface-variant mr-3">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-on-surface-variant/50 w-full font-body-md" placeholder="Search for items, categories..." type="text"/>
+</div>
+</section>
+<!-- Active Order Card -->
+<section>
+<div class="glass-panel glass-glow-blue p-4 rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center animate-float">
+<span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</div>
+<div>
+<p class="font-label-sm text-secondary uppercase tracking-wider">Active Order</p>
+<h3 class="font-title-md text-on-surface">#QW-1042</h3>
+<p class="font-body-md text-on-surface-variant">Out for Delivery</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</section>
+<!-- Promo Carousel -->
+<section class="overflow-x-auto custom-scrollbar -mx-container-padding px-container-padding flex gap-4">
+<div class="min-w-[280px] h-36 rounded-2xl p-5 relative overflow-hidden flex flex-col justify-end bg-gradient-to-br from-indigo-600 to-purple-800 border border-white/20">
+<div class="absolute top-0 right-0 p-4 opacity-20">
+<span class="material-symbols-outlined text-6xl">loyalty</span>
+</div>
+<h4 class="font-title-md text-white">40% OFF</h4>
+<p class="font-label-md text-white/80">On first 5 orders this week</p>
+</div>
+<div class="min-w-[280px] h-36 rounded-2xl p-5 relative overflow-hidden flex flex-col justify-end bg-gradient-to-br from-teal-500 to-emerald-700 border border-white/20">
+<div class="absolute top-0 right-0 p-4 opacity-20">
+<span class="material-symbols-outlined text-6xl">eco</span>
+</div>
+<h4 class="font-title-md text-white">Eco-Wash</h4>
+<p class="font-label-md text-white/80">Sustainable detergent options</p>
+</div>
+<div class="min-w-[280px] h-36 rounded-2xl p-5 relative overflow-hidden flex flex-col justify-end bg-gradient-to-br from-amber-500 to-orange-600 border border-white/20">
+<div class="absolute top-0 right-0 p-4 opacity-20">
+<span class="material-symbols-outlined text-6xl">stars</span>
+</div>
+<h4 class="font-title-md text-white">Gold Member</h4>
+<p class="font-label-md text-white/80">Priority 12-hour delivery</p>
+</div>
+</section>
+<!-- Categories Grid -->
+<section>
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-title-md text-on-surface">Categories</h2>
+<button class="text-secondary font-label-md">View All</button>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<div class="glass-panel p-4 rounded-xl flex flex-col items-center justify-center gap-2 hover:bg-white/10 transition-colors cursor-pointer group">
+<span class="text-2xl group-hover:scale-110 transition-transform">👕</span>
+<span class="font-label-md text-on-surface text-center">Tops</span>
+</div>
+<div class="glass-panel p-4 rounded-xl flex flex-col items-center justify-center gap-2 hover:bg-white/10 transition-colors cursor-pointer group">
+<span class="text-2xl group-hover:scale-110 transition-transform">👖</span>
+<span class="font-label-md text-on-surface text-center">Bottoms</span>
+</div>
+<div class="glass-panel p-4 rounded-xl flex flex-col items-center justify-center gap-2 hover:bg-white/10 transition-colors cursor-pointer group">
+<span class="text-2xl group-hover:scale-110 transition-transform">🥻</span>
+<span class="font-label-md text-on-surface text-center">Ethnic</span>
+</div>
+<div class="glass-panel p-4 rounded-xl flex flex-col items-center justify-center gap-2 hover:bg-white/10 transition-colors cursor-pointer group">
+<span class="text-2xl group-hover:scale-110 transition-transform">👔</span>
+<span class="font-label-md text-on-surface text-center">Formals</span>
+</div>
+<div class="glass-panel p-4 rounded-xl flex flex-col items-center justify-center gap-2 hover:bg-white/10 transition-colors cursor-pointer group">
+<span class="text-2xl group-hover:scale-110 transition-transform">👟</span>
+<span class="font-label-md text-on-surface text-center">Shoes</span>
+</div>
+<div class="glass-panel p-4 rounded-xl flex flex-col items-center justify-center gap-2 hover:bg-white/10 transition-colors cursor-pointer group">
+<span class="text-2xl group-hover:scale-110 transition-transform">🛏</span>
+<span class="font-label-md text-on-surface text-center">Bedding</span>
+</div>
+</div>
+<div class="mt-3 glass-panel py-3 rounded-xl flex items-center justify-center gap-2 text-primary border-dashed border-primary/30">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-label-md">More Categories</span>
+</div>
+</section>
+<!-- Wallet & Promo -->
+<section class="grid grid-cols-2 gap-4">
+<div class="glass-panel p-4 rounded-xl bg-gradient-to-tr from-surface-container to-surface-variant border-white/10">
+<p class="font-label-sm text-on-surface-variant uppercase">Wallet</p>
+<h4 class="font-headline-lg-mobile text-on-surface mt-1">₹1,240</h4>
+<div class="mt-2 flex items-center text-secondary font-label-md">
+<span>Add Credits</span>
+<span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+</div>
+</div>
+<div class="glass-panel p-4 rounded-xl bg-gradient-to-tr from-surface-container to-surface-variant border-white/10">
+<p class="font-label-sm text-on-surface-variant uppercase">Promos</p>
+<h4 class="font-headline-lg-mobile text-on-surface mt-1">04</h4>
+<div class="mt-2 flex items-center text-tertiary font-label-md">
+<span>View Tickets</span>
+<span class="material-symbols-outlined text-sm ml-1">confirmation_number</span>
+</div>
+</div>
+</section>
+<!-- Quick Stats / Trust Markers -->
+<section class="flex justify-between items-center px-2 py-4 border-y border-white/5">
+<div class="flex flex-col items-center gap-1">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">bolt</span>
+</div>
+<span class="font-label-sm text-on-surface-variant">Express</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">savings</span>
+</div>
+<span class="font-label-sm text-on-surface-variant">Save 30%</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<div class="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary">verified</span>
+</div>
+<span class="font-label-sm text-on-surface-variant">Guaranteed</span>
+</div>
+</section>
+<!-- Recent Orders -->
+<section class="pb-8">
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-title-md text-on-surface">Recent Orders</h2>
+<button class="text-on-surface-variant font-label-md">History</button>
+</div>
+<div class="space-y-3">
+<div class="glass-panel p-4 rounded-xl flex items-center gap-4 relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-emerald-500"></div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center">
+<span class="text-xl">🧺</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<h4 class="font-label-md text-on-surface">Weekly Laundry</h4>
+<span class="font-label-md text-emerald-500">Completed</span>
+</div>
+<p class="font-label-sm text-on-surface-variant">12 Items • Yesterday, 6:30 PM</p>
+</div>
+</div>
+<div class="glass-panel p-4 rounded-xl flex items-center gap-4 relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary"></div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center">
+<span class="text-xl">👔</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<h4 class="font-label-md text-on-surface">Office Formals</h4>
+<span class="font-label-md text-secondary">In Process</span>
+</div>
+<p class="font-label-sm text-on-surface-variant">5 Items • 02 Oct, 10:15 AM</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe h-20 bg-white/10 backdrop-blur-[30px] rounded-t-xl border-t border-white/12 shadow-[0_-8px_32px_0_rgba(6,182,212,0.15)]">
+<a class="flex flex-col items-center justify-center text-secondary relative before:content-[''] before:absolute before:-top-2 before:w-8 before:h-1 before:bg-secondary before:rounded-full before:shadow-[0_0_12px_rgba(76,215,246,0.8)] transition-transform duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors transition-transform duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm mt-1">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors transition-transform duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-label-sm text-label-sm mt-1">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors transition-transform duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</nav>
+<!-- Floating Action Button (FAB) - For Contextual Quick Action -->
+<button class="fixed right-6 bottom-24 w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-on-primary shadow-[0_4px_24px_rgba(76,215,246,0.4)] active:scale-90 transition-transform z-40">
+<span class="material-symbols-outlined text-3xl">add_shopping_cart</span>
+</button>
+<script>
+        // Micro-interaction for smooth scrolling reveal
+        document.addEventListener('DOMContentLoaded', () => {
+            const panels = document.querySelectorAll('.glass-panel');
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            panels.forEach(panel => {
+                panel.style.opacity = '0';
+                panel.style.transform = 'translateY(20px)';
+                panel.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                observer.observe(panel);
+            });
+        });
+    </script>
+</body></html>

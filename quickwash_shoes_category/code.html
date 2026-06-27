@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuickWash | Shoe Care Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#7c4ce6",
+                    "on-primary-fixed": "#001b3e",
+                    "surface-container-low": "#161b2b",
+                    "surface-bright": "#343949",
+                    "primary-fixed": "#d6e3ff",
+                    "inverse-surface": "#dee1f7",
+                    "error-container": "#93000a",
+                    "on-background": "#dee1f7",
+                    "secondary-container": "#03b5d3",
+                    "background": "#0e1322",
+                    "secondary-fixed-dim": "#4cd7f6",
+                    "on-primary-container": "#eaefff",
+                    "outline": "#8c919e",
+                    "surface-dim": "#0e1322",
+                    "outline-variant": "#424752",
+                    "on-tertiary-fixed-variant": "#5516be",
+                    "surface-container-highest": "#2f3445",
+                    "on-surface": "#dee1f7",
+                    "surface-variant": "#2f3445",
+                    "surface-container-high": "#25293a",
+                    "on-secondary-fixed": "#001f26",
+                    "tertiary": "#d0bcff",
+                    "primary-container": "#1a6bcc",
+                    "on-error": "#690005",
+                    "inverse-primary": "#005db9",
+                    "surface-container-lowest": "#090e1c",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed": "#e9ddff",
+                    "secondary-fixed": "#acedff",
+                    "surface-tint": "#aac7ff",
+                    "surface-container": "#1a1f2f",
+                    "on-surface-variant": "#c2c6d4",
+                    "on-primary": "#002f64",
+                    "primary": "#aac7ff",
+                    "on-secondary-container": "#00424e",
+                    "on-tertiary-container": "#f5ecff",
+                    "inverse-on-surface": "#2b3040",
+                    "secondary": "#4cd7f6",
+                    "primary-fixed-dim": "#aac7ff",
+                    "tertiary-fixed-dim": "#d0bcff",
+                    "on-tertiary": "#3c0091",
+                    "surface": "#0e1322",
+                    "on-secondary-fixed-variant": "#004e5c",
+                    "on-secondary": "#003640",
+                    "on-tertiary-fixed": "#23005c",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#00458d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "xl": "32px",
+                    "lg": "24px",
+                    "base": "4px",
+                    "sm": "8px",
+                    "xs": "4px",
+                    "gutter": "16px",
+                    "container-padding": "20px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "title-md": ["Inter"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "30px", "fontWeight": "700"}],
+                    "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600"}],
+                    "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            background-color: #0e1322;
+            color: #dee1f7;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:active {
+            transform: scale(0.97);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        .active-selection {
+            border-color: #4cd7f6;
+            box-shadow: 0 0 12px rgba(76, 215, 246, 0.3);
+            background: rgba(76, 215, 246, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #aac7ff 0%, #4cd7f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #1a6bcc 0%, #4cd7f6 100%);
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-primary:active {
+            transform: scale(0.96);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="pb-32">
+<!-- Top App Bar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-white/10 backdrop-blur-[20px] border-b border-white/12">
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary drop-shadow-[0_0_8px_rgba(170,199,255,0.5)]">QuickWash</h1>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-[10px] font-bold text-on-primary-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A close-up portrait of a stylish young professional with a warm smile, captured in soft, cinematic lighting. The individual has clear skin and expressive eyes, set against a blurred, modern office background with subtle blue and teal glass accents that match the tech-forward UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBQN4qiRk2lZfkD2j9rcGVgpLjY1OvUyq5-isn_58RHdxnle-Pj6bMl4Wj7CIKxZAYrMvucdMKrlOcXiQat7l-P8QS-VzsTBx2_0RjwJHWwhsiRe48ps0zFI2LWF-5Wm0fWZrfGZDU3LpCK2XBsjSvOwXYxdoNPdN_k5cJN2y-sAvWnu1M7ytbvqBMuxoG3PV9njf6vVhDDZqkyK0aQ0dWdOnem271MEnDZTatxMP4O_CqGuhPq9WESKCXQ8mAjHyOpWEcIjFgaEc"/>
+</div>
+</div>
+</header>
+<!-- Background Decoration -->
+<div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+
+<div class="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-secondary/10 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[-5%] left-[-5%] w-[40%] h-[40%] bg-primary/10 blur-[100px] rounded-full"></div>
+</div>
+<main class="mt-20 px-container-padding max-w-[800px] mx-auto">
+<!-- Hero Section -->
+<section class="mb-8">
+<div class="relative w-full h-48 rounded-2xl overflow-hidden glass-panel">
+<img class="w-full h-full object-cover opacity-80" data-alt="A high-end, professionally cleaned pair of white designer sneakers placed on a reflective glass surface. The background is a deep midnight blue with subtle cyan neon light refractions. The image is captured with a shallow depth of field, emphasizing the crisp texture and immaculate cleanliness of the shoe material." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkTlYhVIJecLRZDTguvVP6GtpYX9OSc597dFcIHrPlzDM7NCTOb2RTNvCw4SPjuC8DQiHDsrVwKWqqraHkJseNkVzNsCEtND1PWV0VxL3RIb8XHrYtgnq9zLUZ8ak2UmB_ZiU8w3y8wu_0AWS17-DJ9SlgVNkotUcHrGbOjFcdwdaht9qH9qJqk5ccLQZlUnIPvDq2MZ0SRCuCd2PN8BcTngVt1YFmubfkb7RsKG_8np2VkjtS5Hy85ak250IFU42Pmm99T1hCpJg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<h2 class="font-headline-xl text-headline-xl text-white">Shoe Revive</h2>
+<p class="font-body-md text-on-surface-variant">Expert care for every step you take.</p>
+</div>
+</div>
+</section>
+<!-- Service Tier Selector -->
+<section class="mb-10">
+<h3 class="font-title-md text-title-md mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">verified</span>
+                Select Cleaning Level
+            </h3>
+<div class="grid grid-cols-1 gap-3">
+<!-- Basic -->
+<div class="glass-card p-4 rounded-xl flex justify-between items-center cursor-pointer border-transparent active-selection group" onclick="selectTier(this)">
+<div class="flex gap-4 items-center">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary group-[.active-selection]:text-secondary">cleaning_services</span>
+</div>
+<div>
+<p class="font-title-md text-on-surface">Basic</p>
+<p class="font-label-sm text-on-surface-variant">Surface dirt &amp; lace wash</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline-lg-mobile text-primary">₹99</p>
+<p class="font-label-sm text-on-surface-variant">24h Delivery</p>
+</div>
+</div>
+<!-- Deep -->
+<div class="glass-card p-4 rounded-xl flex justify-between items-center cursor-pointer border-transparent group" onclick="selectTier(this)">
+<div class="flex gap-4 items-center">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary group-[.active-selection]:text-secondary">layers</span>
+</div>
+<div>
+<p class="font-title-md text-on-surface">Deep</p>
+<p class="font-label-sm text-on-surface-variant">Internal &amp; Sole detailing</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline-lg-mobile text-primary">₹159</p>
+<p class="font-label-sm text-on-surface-variant">48h Delivery</p>
+</div>
+</div>
+<!-- Premium -->
+<div class="glass-card p-4 rounded-xl flex justify-between items-center cursor-pointer border-transparent group" onclick="selectTier(this)">
+<div class="flex gap-4 items-center">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary group-[.active-selection]:text-secondary">auto_awesome</span>
+</div>
+<div>
+<p class="font-title-md text-on-surface">Premium</p>
+<p class="font-label-sm text-on-surface-variant">Stain removal + Deodorize</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline-lg-mobile text-primary">₹229</p>
+<p class="font-label-sm text-on-surface-variant">Express Available</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Shoe Categories Grid -->
+<section class="mb-10">
+<div class="flex justify-between items-end mb-4">
+<h3 class="font-title-md text-title-md">Choose Shoe Type</h3>
+<span class="font-label-sm text-secondary">Required</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<!-- Sneakers -->
+<div class="glass-card p-3 rounded-xl flex flex-col gap-3 items-center text-center cursor-pointer active-selection border-transparent">
+<div class="w-full aspect-square rounded-lg overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="A pair of vibrant, multi-colored high-top sneakers presented in a clean, minimalist studio setting. The lighting is soft and directional, highlighting the leather textures and intricate stitching. The color palette includes pops of electric blue and neon yellow, set against a dark, tech-inspired background with subtle light streaks." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl64hBu6d28Xou6IYzgycyAiEXwK3gmfLmV6AzBIgSGupW-yuZOE5B1oyR79ygoDuDBQDuGNcQjGHqMa8nDySgUivf9MNojAmFJtG1Cls3fRpbLxLODe01qK2uX_13MXLge6MPYgMJijKafYPzVtzWRUX94ZQcRRyIdWQU4yCIqQhzL7kfMJwsqWeQ7yNiJg4iSisyNyLCEUbZAQiGLwBJP_POwnUjKZoAPN6F8ZA6J6HYnuVeQPghawpL_L9L6uVJDk2enwp6joI"/>
+</div>
+<span class="font-label-md text-on-surface">Sneakers</span>
+</div>
+<!-- Sports -->
+<div class="glass-card p-3 rounded-xl flex flex-col gap-3 items-center text-center cursor-pointer border-transparent">
+<div class="w-full aspect-square rounded-lg overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="Dynamic close-up of high-performance running shoes with breathable mesh texture. The shoes are set against a futuristic, dark atmosphere with cyan energy lines suggesting motion. The lighting focuses on the sole's grip and the sleek aerodynamic silhouette, maintaining a premium professional feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeLz26Au4L6Yh3tWDJcoCvCQaIpCeZc8F44b9bhKkbkzkkWxB_8UbtMM-E9Ee_Y-i0cqKr9r0XqW-WEpDw0PTEdc7G_QOc-9EdRpyXWWRlYw7sVmy9Jzxi36emUzV2DSYTGkptYvR2N_EF6glGauxxGwKO2d8MucoUFn6nt7DaiJstvhosCFQVt_MQUS5XEJO6xX4pMy6_20GJGrUdbYEV6c0MpX1DM7hy7hNLqsmrnLSURQvfPMzM5Wm6WoPu7qrBx0NMN54gnC4"/>
+</div>
+<span class="font-label-md text-on-surface">Sports Shoes</span>
+</div>
+<!-- Formal -->
+<div class="glass-card p-3 rounded-xl flex flex-col gap-3 items-center text-center cursor-pointer border-transparent">
+<div class="w-full aspect-square rounded-lg overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="Elegant polished black leather oxford shoes placed on a dark wooden surface with a soft velvet glow. The image uses dramatic, low-key lighting to emphasize the mirror-like shine and the premium quality of the leather. The mood is sophisticated and classic, aligned with high-end luxury services." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcg65iVcQHuozVhlNdH9N1zWRj6tWmmE9FRNFy1UXOjXQW8GVuC82lFauK6ibyc9QTXLHcmY1wjQkJgYpNKuiqP7o1L5LSbKBdVlrjp-gIY-Zo4yjz_jZl1haS64tUGs02f1XbefMjkC0yXtvMpUwzTQl7qJxJqLYO8Qgs0rj4QSXKokCpCNIAWStTXtXukRvqHMM_k0obfep60HOcqYiAsYtTYNaII8bk7L8nQxJ_-ByL517AKKknv-MoX12Cliwejgg-6lJjBvc"/>
+</div>
+<span class="font-label-md text-on-surface">Formal Shoes</span>
+</div>
+<!-- Heels -->
+<div class="glass-card p-3 rounded-xl flex flex-col gap-3 items-center text-center cursor-pointer border-transparent">
+<div class="w-full aspect-square rounded-lg overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="A pair of designer stiletto heels in a soft champagne satin finish. The shoes are elegantly posed in a setting of translucent glass panels and soft bokeh lighting. The composition is artistic and airy, emphasizing the delicate straps and high-fashion aesthetic with a soft glow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsYtYJI7PH28O8cEU6_fRhtjWUnPhNcojOdRSaZXt62QElSHYOeKGJrEByPDoDez2qhHs-gmquoxLBKFzrG3JFGFjOsCk4AbOIG6IkrxdmVBR1a9diRVj4-Q2H58QhG_dgHUKEIHR--j82toWCEfDUX4RUs8-N9mRlKVR3ldrx5vy9feJDPSQ2-dLJjCFz4nyBVPB96uW5c-x4DCAAoXYwBRXe7S06pN_Rf289F9IfNEwijpflpWPGXkbO3tBfleMtEgAdNTpuyMo"/>
+</div>
+<span class="font-label-md text-on-surface">Heels</span>
+</div>
+<!-- Boots -->
+<div class="glass-card p-3 rounded-xl flex flex-col gap-3 items-center text-center cursor-pointer border-transparent">
+<div class="w-full aspect-square rounded-lg overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="Rugged yet stylish leather Chelsea boots with a rich mahogany grain. The lighting highlights the natural patina and sturdy construction. The background is a dark, industrial space with subtle atmospheric dust motes caught in shafts of cool blue light, creating a sense of durability and quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjd5ELdrCh_4mIC1OZ6DnM08vFVUbnQoRbC4FsoOtpLOVUSZREkyEyZJv9pIxxw_Thby41G_C9ROUTdJk_XkgfI0w40iqdttVmrNCBrQwcxDoxIY0FkiuRUCTsi4qK0bxjLJ91wAStmbCEBSScGZqZgTKJp7Slofvc5lIFbZv7LK996QqjlKyzYXTOwxqntuVH71qkkJ6jy-UXoEj2zEQNH-THsCyTRQy-i5uDA9APDlyV-qnfMqp0upypyl0ggCTIca7bmM0xg-E"/>
+</div>
+<span class="font-label-md text-on-surface">Boots</span>
+</div>
+</div>
+</section>
+<!-- Add-ons Section -->
+<section class="mb-10">
+<h3 class="font-title-md text-title-md mb-4">Enhance Your Service</h3>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar pb-2">
+<!-- Protection Spray -->
+<div class="flex-shrink-0 w-64 glass-panel p-4 rounded-xl flex items-center gap-4 border-transparent hover:border-white/20 transition-all">
+<div class="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">shield</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-on-surface">Protection Spray</p>
+<p class="font-label-sm text-on-surface-variant">+₹49</p>
+</div>
+<button class="w-8 h-8 rounded-full border border-secondary flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<!-- Leather Conditioner -->
+<div class="flex-shrink-0 w-64 glass-panel p-4 rounded-xl flex items-center gap-4 border-transparent hover:border-white/20 transition-all">
+<div class="w-12 h-12 rounded-full bg-tertiary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary">spa</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-on-surface">Leather Conditioner</p>
+<p class="font-label-sm text-on-surface-variant">+₹79</p>
+</div>
+<button class="w-8 h-8 rounded-full border border-secondary flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Sticky Footer -->
+<footer class="fixed bottom-0 left-0 w-full z-50 p-4 bg-white/10 backdrop-blur-[30px] border-t border-white/12 shadow-[0_-8px_32px_0_rgba(6,182,212,0.15)] flex justify-between items-center h-24">
+<div class="flex flex-col">
+<span class="font-label-sm text-on-surface-variant">Estimated Total</span>
+<span class="font-headline-lg text-primary">₹99 <span class="text-sm font-normal text-on-surface-variant">/ item</span></span>
+</div>
+<button class="btn-primary h-14 px-8 rounded-xl font-title-md text-white flex items-center gap-2 shadow-lg shadow-secondary/20">
+            Add to Order
+            <span class="material-symbols-outlined">shopping_bag</span>
+</button>
+</footer>
+<script>
+        function selectTier(element) {
+            // Remove selection from all in the same group
+            const cards = element.parentElement.querySelectorAll('.glass-card');
+            cards.forEach(card => card.classList.remove('active-selection'));
+            
+            // Add selection to clicked
+            element.classList.add('active-selection');
+            
+            // Update Footer Price (Simulated logic)
+            const priceText = element.querySelector('.text-primary').innerText;
+            document.querySelector('footer .text-primary').innerHTML = `${priceText} <span class="text-sm font-normal text-on-surface-variant">/ item</span>`;
+        }
+
+        // Horizontal Category Select logic
+        document.querySelectorAll('section:nth-of-type(3) .glass-card').forEach(item => {
+            item.addEventListener('click', function() {
+                this.parentElement.querySelectorAll('.glass-card').forEach(c => c.classList.remove('active-selection'));
+                this.classList.add('active-selection');
+            });
+        });
+
+        // Add-on toggle logic
+        document.querySelectorAll('section:last-of-type button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const icon = this.querySelector('span');
+                if(icon.innerText === 'add') {
+                    icon.innerText = 'check';
+                    this.classList.add('bg-secondary', 'text-on-secondary');
+                    this.classList.remove('text-secondary');
+                } else {
+                    icon.innerText = 'add';
+                    this.classList.remove('bg-secondary', 'text-on-secondary');
+                    this.classList.add('text-secondary');
+                }
+            });
+        });
+    </script>
+</body></html>

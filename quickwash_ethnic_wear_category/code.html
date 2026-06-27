@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ethnic Wear Care | QuickWash</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .glass-pill {
+            background: rgba(26, 107, 204, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .vibrant-glow {
+            box-shadow: 0 8px 32px 0 rgba(6, 182, 212, 0.15);
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #aac7ff 0%, #4cd7f6 100%);
+        }
+        body {
+            background-color: #0e1322;
+            color: #dee1f7;
+            overflow-x: hidden;
+        }
+        .page-entry {
+            animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .active-nav-glow {
+            box-shadow: 0 0 12px rgba(76, 215, 246, 0.8);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "tertiary-container": "#7c4ce6",
+                "on-primary-fixed": "#001b3e",
+                "surface-container-low": "#161b2b",
+                "surface-bright": "#343949",
+                "primary-fixed": "#d6e3ff",
+                "inverse-surface": "#dee1f7",
+                "error-container": "#93000a",
+                "on-background": "#dee1f7",
+                "secondary-container": "#03b5d3",
+                "background": "#0e1322",
+                "secondary-fixed-dim": "#4cd7f6",
+                "on-primary-container": "#eaefff",
+                "outline": "#8c919e",
+                "surface-dim": "#0e1322",
+                "outline-variant": "#424752",
+                "on-tertiary-fixed-variant": "#5516be",
+                "surface-container-highest": "#2f3445",
+                "on-surface": "#dee1f7",
+                "surface-variant": "#2f3445",
+                "surface-container-high": "#25293a",
+                "on-secondary-fixed": "#001f26",
+                "tertiary": "#d0bcff",
+                "primary-container": "#1a6bcc",
+                "on-error": "#690005",
+                "inverse-primary": "#005db9",
+                "surface-container-lowest": "#090e1c",
+                "error": "#ffb4ab",
+                "tertiary-fixed": "#e9ddff",
+                "secondary-fixed": "#acedff",
+                "surface-tint": "#aac7ff",
+                "surface-container": "#1a1f2f",
+                "on-surface-variant": "#c2c6d4",
+                "on-primary": "#002f64",
+                "primary": "#aac7ff",
+                "on-secondary-container": "#00424e",
+                "on-tertiary-container": "#f5ecff",
+                "inverse-on-surface": "#2b3040",
+                "secondary": "#4cd7f6",
+                "primary-fixed-dim": "#aac7ff",
+                "tertiary-fixed-dim": "#d0bcff",
+                "on-tertiary": "#3c0091",
+                "surface": "#0e1322",
+                "on-secondary-fixed-variant": "#004e5c",
+                "on-secondary": "#003640",
+                "on-tertiary-fixed": "#23005c",
+                "on-error-container": "#ffdad6",
+                "on-primary-fixed-variant": "#00458d"
+              },
+              "spacing": {
+                "md": "16px",
+                "xl": "32px",
+                "lg": "24px",
+                "base": "4px",
+                "sm": "8px",
+                "xs": "4px",
+                "gutter": "16px",
+                "container-padding": "20px"
+              },
+              "fontFamily": {
+                "headline-lg": ["Inter"],
+                "body-lg": ["Inter"],
+                "headline-lg-mobile": ["Inter"],
+                "label-sm": ["Inter"]
+              },
+              "fontSize": {
+                "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "400"}],
+                "headline-lg-mobile": ["24px", {"lineHeight": "30px", "fontWeight": "700"}],
+                "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="antialiased font-body-lg text-on-surface">
+<!-- Hero / Animated Background -->
+<div class="fixed inset-0 z-[-1]">
+
+</div>
+<!-- Top App Bar (Shared Component) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-white/10 backdrop-blur-[20px] border-b border-white/12 shadow-none">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary cursor-pointer">arrow_back</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary drop-shadow-[0_0_8px_rgba(170,199,255,0.5)]">QuickWash</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<div class="w-8 h-8 rounded-full border border-primary/30 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of a young person with soft cinematic lighting, high-end digital photography style, set against a dark deep navy background to match the luminous depth UI. The subject wears a minimalist charcoal silk shirt. Reflections of cool blue and cyan light are visible on their skin, creating a futuristic professional aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtEcEBzbtvA_ZOMsksfXHcaJ_tKjS_Di1-2rMlCCHAPBOkG3yPEw02mQRinNu464um0xPKWV7J9nZcGQra_2wJh5NoNZ_QUE7qeS6mzhuYlChIJpgCJr5LMq3CBV5Qmhq3gnjNqGxgkClXn57a3D0hvsiym21ym_OwUWUp-MqGTpSFQOdCy68q9XMg0G18wnAf_kc0gHSNH08qtBYT8jAczC-jfa_onkBsDjvt6XZeVlbSlTCkNfy9RIkiTAVu2WldtccL1BfatE4"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-40 px-container-padding max-w-[800px] mx-auto page-entry">
+<!-- Category Banner -->
+<section class="mb-xl">
+<div class="relative h-48 rounded-2xl overflow-hidden glass-card">
+<div class="absolute inset-0 z-0 bg-cover bg-center" data-alt="A luxurious close-up of intricate gold embroidery on a deep royal blue velvet fabric. The lighting is moody and dramatic, focusing on the shimmering threads and high-quality texture. Small dust motes catch the light, suggesting a high-end atelier setting. The overall mood is opulent, professional, and culturally rich, using a palette of midnight blue and metallic gold." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAT7_XJNoy4RWTptFH0upe3l22E80evFenb_Xvk1aI-yPMsyUMSr4jOL9nacGdAheT2clNDGaQADCMI4fu7OP5_UZfk6KaVtTPwQdwb_OFkFtaHp2PCmVzrMXT7LV7JAw2QtWL73k7pdpFotuH24y14eol1Cc-IE_GkCc6euej-KNHH_Nm8HYdBlR4zJVo48dw3CCUotAbqWwAWxQEOWzVS5kPj7d-PGKVSfeamBZYGecV-ZFe7Gow8gEgE_gEvf8WsDAngwSFwX-A')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="glass-pill px-3 py-1 rounded-full text-label-sm font-label-sm text-secondary mb-2 inline-block">PREMIUM CARE</span>
+<h2 class="font-headline-lg text-headline-lg text-white">Ethnic Wear</h2>
+<p class="text-on-surface-variant text-sm">Specialized cleaning for your festive attire.</p>
+</div>
+</div>
+</section>
+<!-- Service Checklist -->
+<section class="mb-xl">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile mb-md text-primary">Service Checklist</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+<div class="glass-card p-4 rounded-xl flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-secondary mb-2" style="font-size: 32px;">dry_cleaning</span>
+<span class="text-label-sm">Dry Clean</span>
+</div>
+<div class="glass-card p-4 rounded-xl flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-secondary mb-2" style="font-size: 32px;">verified</span>
+<span class="text-label-sm">Premium Care</span>
+</div>
+<div class="glass-card p-4 rounded-xl flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-secondary mb-2" style="font-size: 32px;">cleaning_services</span>
+<span class="text-label-sm">Stain Removal</span>
+</div>
+<div class="glass-card p-4 rounded-xl flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-secondary mb-2" style="font-size: 32px;">iron</span>
+<span class="text-label-sm">Steam Ironing</span>
+</div>
+</div>
+</section>
+<!-- Item Grid -->
+<section class="mb-xl">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Select Items</h3>
+<span class="text-label-sm text-on-surface-variant">5 Items Available</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Kurta -->
+<div class="glass-card p-4 rounded-2xl flex justify-between items-center transition-all hover:border-primary/50 group">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-primary" style="font-size: 32px;">apparel</span>
+</div>
+<div>
+<h4 class="font-semibold text-lg">Kurta</h4>
+<p class="text-secondary font-bold">₹49</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-8 h-8 rounded-lg glass-pill flex items-center justify-center active:scale-95 transition-transform"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="font-bold text-lg w-4 text-center">0</span>
+<button class="w-8 h-8 rounded-lg primary-gradient text-on-primary-fixed flex items-center justify-center active:scale-95 transition-transform"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+</div>
+<!-- Saree Cotton -->
+<div class="glass-card p-4 rounded-2xl flex justify-between items-center transition-all hover:border-primary/50 group">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-size: 32px;">layers</span>
+</div>
+<div>
+<h4 class="font-semibold text-lg">Cotton Saree</h4>
+<p class="text-secondary font-bold">₹79</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-8 h-8 rounded-lg glass-pill flex items-center justify-center active:scale-95 transition-transform"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="font-bold text-lg w-4 text-center">1</span>
+<button class="w-8 h-8 rounded-lg primary-gradient text-on-primary-fixed flex items-center justify-center active:scale-95 transition-transform"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+</div>
+<!-- Saree Silk -->
+<div class="glass-card p-4 rounded-2xl flex justify-between items-center transition-all hover:border-primary/50 group border-primary/30">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-primary" style="font-size: 32px;">auto_awesome</span>
+</div>
+<div>
+<h4 class="font-semibold text-lg">Silk Saree</h4>
+<p class="text-secondary font-bold">₹199</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-8 h-8 rounded-lg glass-pill flex items-center justify-center active:scale-95 transition-transform"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="font-bold text-lg w-4 text-center">0</span>
+<button class="w-8 h-8 rounded-lg primary-gradient text-on-primary-fixed flex items-center justify-center active:scale-95 transition-transform"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+</div>
+<!-- Lehenga -->
+<div class="glass-card p-4 rounded-2xl flex justify-between items-center transition-all hover:border-primary/50 group">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-size: 32px;">styler</span>
+</div>
+<div>
+<h4 class="font-semibold text-lg">Lehenga</h4>
+<p class="text-secondary font-bold">₹149</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-8 h-8 rounded-lg glass-pill flex items-center justify-center active:scale-95 transition-transform"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="font-bold text-lg w-4 text-center">0</span>
+<button class="w-8 h-8 rounded-lg primary-gradient text-on-primary-fixed flex items-center justify-center active:scale-95 transition-transform"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+</div>
+<!-- Sherwani -->
+<div class="glass-card p-4 rounded-2xl flex justify-between items-center transition-all hover:border-primary/50 group md:col-span-2">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-size: 32px;">military_tech</span>
+</div>
+<div>
+<h4 class="font-semibold text-lg">Sherwani</h4>
+<p class="text-secondary font-bold">₹199</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-8 h-8 rounded-lg glass-pill flex items-center justify-center active:scale-95 transition-transform"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="font-bold text-lg w-4 text-center">0</span>
+<button class="w-8 h-8 rounded-lg primary-gradient text-on-primary-fixed flex items-center justify-center active:scale-95 transition-transform"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+</div>
+</div>
+</section>
+<!-- Add-ons Section -->
+<section class="mb-xl">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile mb-md text-primary">Care Add-ons</h3>
+<div class="space-y-3">
+<label class="glass-card p-4 rounded-2xl flex items-center justify-between cursor-pointer group hover:bg-white/10 transition-all">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg glass-pill flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">inventory_2</span>
+</div>
+<div>
+<p class="font-semibold">Premium Packing</p>
+<p class="text-label-sm text-on-surface-variant">+₹20 / item</p>
+</div>
+</div>
+<input class="w-6 h-6 rounded border-white/20 bg-white/5 text-primary focus:ring-primary focus:ring-offset-background transition-all" type="checkbox"/>
+</label>
+<label class="glass-card p-4 rounded-2xl flex items-center justify-between cursor-pointer group hover:bg-white/10 transition-all">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg glass-pill flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">shield_spark</span>
+</div>
+<div>
+<p class="font-semibold">Fabric Protection</p>
+<p class="text-label-sm text-on-surface-variant">+₹35 / item</p>
+</div>
+</div>
+<input class="w-6 h-6 rounded border-white/20 bg-white/5 text-primary focus:ring-primary focus:ring-offset-background transition-all" type="checkbox"/>
+</label>
+</div>
+</section>
+</main>
+<!-- Sticky Add to Order Footer -->
+<footer class="fixed bottom-0 left-0 w-full z-50 bg-white/10 backdrop-blur-[30px] border-t border-white/12 px-container-padding py-4 shadow-[0_-8px_32px_0_rgba(6,182,212,0.15)] flex flex-col gap-4">
+<div class="flex justify-between items-center">
+<div>
+<p class="text-label-sm text-on-surface-variant">1 Item Selected</p>
+<p class="text-headline-lg font-bold text-secondary">₹79.00</p>
+</div>
+<button class="primary-gradient text-on-primary-fixed px-10 h-12 rounded-xl font-bold flex items-center gap-2 active:scale-95 transition-all vibrant-glow">
+                Add to Order
+                <span class="material-symbols-outlined">shopping_basket</span>
+</button>
+</div>
+</footer>
+<!-- Bottom Nav (Hidden on focus screens as per mandate, but included for structure if required. Using suppression rule: suppressing standard bottom nav for this transactional flow) -->
+<script>
+        // Micro-interactions
+        document.querySelectorAll('button, label').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.style.transform = 'scale(0.97)';
+            });
+            el.addEventListener('mouseup', () => {
+                el.style.transform = '';
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = '';
+            });
+        });
+
+        // Simple visibility effect for background
+        window.addEventListener('scroll', () => {
+            const opacity = Math.max(0.2, 0.4 - (window.scrollY / 1000));
+            document.querySelector('webgl-shader').style.opacity = opacity;
+        });
+    </script>
+</body></html>

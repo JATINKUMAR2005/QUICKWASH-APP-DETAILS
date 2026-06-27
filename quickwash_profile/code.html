@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>QuickWash - User Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.06);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --glass-blur: blur(20px);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0e1322;
+            color: #dee1f7;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:active {
+            transform: scale(0.98);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .glow-accent {
+            box-shadow: 0 0 20px rgba(76, 215, 246, 0.15);
+        }
+        .toggle-switch {
+            appearance: none;
+            width: 44px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 999px;
+            position: relative;
+            cursor: pointer;
+            outline: none;
+            transition: background 0.3s ease;
+            border: 1px solid var(--glass-border);
+        }
+        .toggle-switch::before {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            background: white;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .toggle-switch:checked {
+            background: #03b5d3;
+        }
+        .toggle-switch:checked::before {
+            transform: translateX(20px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        @keyframes fadeInSlideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-entrance {
+            animation: fadeInSlideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-container": "#7c4ce6",
+                      "on-primary-fixed": "#001b3e",
+                      "surface-container-low": "#161b2b",
+                      "surface-bright": "#343949",
+                      "primary-fixed": "#d6e3ff",
+                      "inverse-surface": "#dee1f7",
+                      "error-container": "#93000a",
+                      "on-background": "#dee1f7",
+                      "secondary-container": "#03b5d3",
+                      "background": "#0e1322",
+                      "secondary-fixed-dim": "#4cd7f6",
+                      "on-primary-container": "#eaefff",
+                      "outline": "#8c919e",
+                      "surface-dim": "#0e1322",
+                      "outline-variant": "#424752",
+                      "on-tertiary-fixed-variant": "#5516be",
+                      "surface-container-highest": "#2f3445",
+                      "on-surface": "#dee1f7",
+                      "surface-variant": "#2f3445",
+                      "surface-container-high": "#25293a",
+                      "on-secondary-fixed": "#001f26",
+                      "tertiary": "#d0bcff",
+                      "primary-container": "#1a6bcc",
+                      "on-error": "#690005",
+                      "inverse-primary": "#005db9",
+                      "surface-container-lowest": "#090e1c",
+                      "error": "#ffb4ab",
+                      "tertiary-fixed": "#e9ddff",
+                      "secondary-fixed": "#acedff",
+                      "surface-tint": "#aac7ff",
+                      "surface-container": "#1a1f2f",
+                      "on-surface-variant": "#c2c6d4",
+                      "on-primary": "#002f64",
+                      "primary": "#aac7ff",
+                      "on-secondary-container": "#00424e",
+                      "on-tertiary-container": "#f5ecff",
+                      "inverse-on-surface": "#2b3040",
+                      "secondary": "#4cd7f6",
+                      "primary-fixed-dim": "#aac7ff",
+                      "tertiary-fixed-dim": "#d0bcff",
+                      "on-tertiary": "#3c0091",
+                      "surface": "#0e1322",
+                      "on-secondary-fixed-variant": "#004e5c",
+                      "on-secondary": "#003640",
+                      "on-tertiary-fixed": "#23005c",
+                      "on-error-container": "#ffdad6",
+                      "on-primary-fixed-variant": "#00458d"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "md": "16px",
+                      "xl": "32px",
+                      "lg": "24px",
+                      "base": "4px",
+                      "sm": "8px",
+                      "xs": "4px",
+                      "gutter": "16px",
+                      "container-padding": "20px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "headline-xl": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "body-md": ["Inter"],
+                      "title-md": ["Inter"],
+                      "label-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "30px", "fontWeight": "700"}],
+                      "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600"}],
+                      "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
+                      "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background pb-24">
+<!-- Background Shader Layer -->
+<div class="fixed inset-0 -z-10 pointer-events-none">
+
+</div>
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-white/10 backdrop-blur-[20px] border-b border-white/12">
+<div class="flex items-center gap-3">
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary drop-shadow-[0_0_8px_rgba(170,199,255,0.5)]">QuickWash</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/5 transition-all text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="mt-20 px-container-padding animate-entrance">
+<!-- Profile Header Section -->
+<section class="flex flex-col items-center mb-8">
+<div class="relative group">
+<div class="w-24 h-24 rounded-full p-1 bg-gradient-to-tr from-primary to-secondary glow-accent">
+<div class="w-full h-full rounded-full overflow-hidden border-2 border-background">
+<img class="w-full h-full object-cover" data-alt="A professional close-up studio portrait of a confident person in a dark room with soft blue and cyan rim lighting, reflecting the tech-forward futuristic aesthetic of the app. The subject has a warm, approachable expression. High-end digital photography style with deep cinematic shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV18AHXkBHhjSKZEJeYM-bY54v5agLqslj1aIWlv0mtR5LWa2GrNYUVVSXTMFdC-sNptXiW8x8AVeOKU7Kz6oUnveVSvXO_LmcPxm63HhysfCF0jOcajjjR_G_ZE6L9z1u_Q2lTTpUPV7kPGZhGFXQsRw0rq4md-Sr7Av9zoj06hPwQEUH19I50awemo5GkWUpEPiAe2KRXPE3y4R_bmjzzBZsmLI858EOfj9UWfIlHbzWWxwfbxhtf9R9M32b8DjC3DjCbEpaxBA"/>
+</div>
+</div>
+<div class="absolute bottom-0 right-0 bg-secondary text-on-secondary px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase shadow-lg">
+                    Gold
+                </div>
+</div>
+<h1 class="mt-4 font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Arjun Malhotra</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">arjun.m@example.com</p>
+<div class="mt-4 flex gap-2">
+<span class="px-3 py-1 glass-card rounded-full font-label-sm text-label-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined !text-[14px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+                    Gold Member
+                </span>
+</div>
+</section>
+<!-- Wallet Card -->
+<section class="mb-6">
+<div class="glass-card rounded-xl p-md flex justify-between items-center bg-gradient-to-br from-white/10 to-transparent">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]" data-icon="account_balance_wallet" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Wallet Balance</p>
+<p class="font-title-md text-title-md text-on-surface">₹1,240.00</p>
+</div>
+</div>
+<button class="px-4 py-2 bg-secondary/20 hover:bg-secondary/30 text-secondary font-label-md text-label-md rounded-lg transition-colors border border-secondary/20">
+                    Add Cash
+                </button>
+</div>
+</section>
+<!-- Settings Group 1 -->
+<section class="space-y-3 mb-6">
+<div class="glass-card rounded-xl overflow-hidden">
+<!-- Saved Addresses -->
+<button class="w-full px-md py-4 flex items-center justify-between hover:bg-white/5 active:bg-white/10 transition-colors border-b border-white/5">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="location_on">location_on</span>
+<span class="font-body-md text-body-md text-on-surface">Saved Addresses</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant !text-[18px]" data-icon="chevron_right">chevron_right</span>
+</button>
+<!-- Payment Methods -->
+<button class="w-full px-md py-4 flex items-center justify-between hover:bg-white/5 active:bg-white/10 transition-colors border-b border-white/5">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="credit_card">credit_card</span>
+<span class="font-body-md text-body-md text-on-surface">Payment Methods</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant !text-[18px]" data-icon="chevron_right">chevron_right</span>
+</button>
+<!-- Notifications Toggle -->
+<div class="w-full px-md py-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications_active">notifications_active</span>
+<span class="font-body-md text-body-md text-on-surface">Push Notifications</span>
+</div>
+<input checked="" class="toggle-switch" type="checkbox"/>
+</div>
+</div>
+</section>
+<!-- Settings Group 2 -->
+<section class="space-y-3 mb-8">
+<div class="glass-card rounded-xl overflow-hidden">
+<!-- Help & Support -->
+<button class="w-full px-md py-4 flex items-center justify-between hover:bg-white/5 active:bg-white/10 transition-colors border-b border-white/5">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="help_center">help_center</span>
+<span class="font-body-md text-body-md text-on-surface">Help &amp; Support</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant !text-[18px]" data-icon="chevron_right">chevron_right</span>
+</button>
+<!-- Logout -->
+<button class="w-full px-md py-4 flex items-center justify-between hover:bg-error/5 active:bg-error/10 transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-error" data-icon="logout">logout</span>
+<span class="font-body-md text-body-md text-error">Logout</span>
+</div>
+</button>
+</div>
+</section>
+<!-- Footer Info -->
+<div class="text-center opacity-40">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Version 2.4.0 (Build 892)</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Made with Luminous Depth Design System</p>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe h-20 bg-white/10 backdrop-blur-[30px] border-t border-white/12 shadow-[0_-8px_32px_0_rgba(6,182,212,0.15)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm text-label-sm">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="font-label-sm text-label-sm">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary relative before:content-[''] before:absolute before:-top-2 before:w-8 before:h-1 before:bg-secondary before:rounded-full before:shadow-[0_0_12px_rgba(76,215,246,0.8)] active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for toggle switches
+        document.querySelectorAll('.toggle-switch').forEach(toggle => {
+            toggle.addEventListener('change', function() {
+                // Haptic feedback simulation if supported
+                if (window.navigator && window.navigator.vibrate) {
+                    window.navigator.vibrate(5);
+                }
+            });
+        });
+
+        // Add subtle parallax effect on cards based on touch/mouse
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.glass-card');
+            const mouseX = e.clientX / window.innerWidth - 0.5;
+            const mouseY = e.clientY / window.innerHeight - 0.5;
+            
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const cardCenterX = rect.left + rect.width / 2;
+                const cardCenterY = rect.top + rect.height / 2;
+                
+                // Only affect visible cards
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    const moveX = mouseX * 5;
+                    const moveY = mouseY * 5;
+                    card.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                }
+            });
+        });
+    </script>
+</body></html>

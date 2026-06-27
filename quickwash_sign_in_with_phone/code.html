@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>QuickWash - Sign In</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#e9ddff",
+                    "background": "#0e1322",
+                    "surface-container-low": "#161b2b",
+                    "on-surface": "#dee1f7",
+                    "on-primary-fixed": "#001b3e",
+                    "on-error": "#690005",
+                    "on-secondary-fixed-variant": "#004e5c",
+                    "inverse-surface": "#dee1f7",
+                    "surface-bright": "#343949",
+                    "tertiary": "#d0bcff",
+                    "surface-container-high": "#25293a",
+                    "primary-container": "#1a6bcc",
+                    "outline-variant": "#424752",
+                    "on-tertiary-fixed-variant": "#5516be",
+                    "surface-tint": "#aac7ff",
+                    "inverse-primary": "#005db9",
+                    "tertiary-fixed-dim": "#d0bcff",
+                    "surface-container-highest": "#2f3445",
+                    "on-primary": "#002f64",
+                    "inverse-on-surface": "#2b3040",
+                    "on-secondary-fixed": "#001f26",
+                    "surface-container": "#1a1f2f",
+                    "on-primary-fixed-variant": "#00458d",
+                    "secondary-fixed": "#acedff",
+                    "secondary-container": "#03b5d3",
+                    "primary-fixed": "#d6e3ff",
+                    "primary-fixed-dim": "#aac7ff",
+                    "on-secondary": "#003640",
+                    "secondary-fixed-dim": "#4cd7f6",
+                    "secondary": "#4cd7f6",
+                    "on-tertiary-container": "#f5ecff",
+                    "on-tertiary": "#3c0091",
+                    "outline": "#8c919e",
+                    "on-surface-variant": "#c2c6d4",
+                    "surface-variant": "#2f3445",
+                    "surface": "#0e1322",
+                    "tertiary-container": "#7c4ce6",
+                    "on-tertiary-fixed": "#23005c",
+                    "error": "#ffb4ab",
+                    "surface-dim": "#0e1322",
+                    "primary": "#aac7ff",
+                    "on-primary-container": "#eaefff",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-container": "#00424e",
+                    "on-background": "#dee1f7",
+                    "error-container": "#93000a",
+                    "surface-container-lowest": "#090e1c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "8px",
+                    "base": "4px",
+                    "lg": "24px",
+                    "container-padding": "20px",
+                    "xl": "32px",
+                    "md": "16px",
+                    "xs": "4px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "title-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "30px", "fontWeight": "700"}],
+                    "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "400"}],
+                    "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            background-color: #0e1322;
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .glass-btn-primary {
+            background: linear-gradient(135deg, #1a6bcc 0%, #03b5d3 100%);
+            opacity: 0.9;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+        }
+
+        .glass-btn-primary:active {
+            transform: scale(0.96);
+            opacity: 1;
+        }
+
+        .glass-input {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-input:focus-within {
+            border-color: #4cd7f6;
+            box-shadow: 0 0 12px rgba(76, 215, 246, 0.2);
+        }
+
+        .fade-slide-up {
+            animation: fadeSlideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite linear;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-container-padding selection:bg-secondary/30">
+<!-- Atmospheric Background Animation -->
+
+<main class="w-full max-w-[400px] z-10 flex flex-col items-center">
+<!-- Logo Section -->
+<div class="mb-xl flex flex-col items-center fade-slide-up" style="animation-delay: 0.1s;">
+<div class="w-16 h-16 rounded-2xl glass-panel flex items-center justify-center mb-md relative overflow-hidden">
+<div class="absolute inset-0 shimmer"></div>
+<span class="material-symbols-outlined text-primary text-[40px]" style="font-variation-settings: 'FILL' 1;">local_laundry_service</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary drop-shadow-[0_0_8px_rgba(170,199,255,0.5)]">
+                QuickWash
+            </h1>
+</div>
+<!-- Headline & Subtext -->
+<div class="w-full text-center mb-xl fade-slide-up" style="animation-delay: 0.2s;">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Sign In with Phone</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px] mx-auto">
+                We'll send a 4-digit code to verify your number.
+            </p>
+</div>
+<!-- Phone Input Section -->
+<div class="w-full space-y-md fade-slide-up" style="animation-delay: 0.3s;">
+<div class="glass-input rounded-xl flex items-center p-1 px-4 h-14">
+<div class="flex items-center gap-1 pr-3 border-r border-white/12 cursor-pointer hover:text-secondary transition-colors group">
+<img class="w-5 h-4 object-cover rounded-sm" data-alt="A small detailed icon of the Indian national flag with high-fidelity texture and vibrant saffron, white, and green colors, designed for a modern UI profile setting. The background of the flag is slightly blurred to emphasize the fabric weave." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKEA9Ah-kw0cREhUrulZ4RJlnCVGIpSSmU42Vdu_utK0WnU64wu3LoLnpLvwP0jmb_y7xKDbrln4NuJaEjrEZysZV53jb9GUCzgDfmnOIqVQKdTR6H4eABgCkYTrxdho7VlRtYnM8UmIV3uyys6vNSsBkN2rvlXAw-cuzzNMQoD-6UOIwESfsQfn6Fv--QRZYsvjEAjbpzulTMn6VJj-4y5xlZWc30_Xa3IwGb3k2bzGs6gGEDCG-jLigiF_wmlRvoVoCiG46zJ9s"/>
+<span class="font-title-md text-title-md text-on-surface">+91</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary text-sm">expand_more</span>
+</div>
+<input class="bg-transparent border-none focus:ring-0 w-full font-title-md text-title-md text-on-surface placeholder:text-on-surface-variant/40 pl-4 outline-none" maxlength="10" placeholder="Mobile Number" type="tel"/>
+</div>
+<button class="w-full glass-btn-primary h-14 rounded-xl flex items-center justify-center gap-2 group">
+<span class="font-title-md text-title-md text-on-primary-fixed font-bold">Send OTP</span>
+<span class="material-symbols-outlined text-on-primary-fixed group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<!-- Divider -->
+<div class="w-full flex items-center gap-4 my-lg fade-slide-up opacity-60" style="animation-delay: 0.4s;">
+<div class="h-[1px] flex-1 bg-gradient-to-l from-white/12 to-transparent"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">OR</span>
+<div class="h-[1px] flex-1 bg-gradient-to-r from-white/12 to-transparent"></div>
+</div>
+<!-- Secondary Actions -->
+<div class="w-full space-y-md fade-slide-up" style="animation-delay: 0.5s;">
+<button class="w-full glass-panel h-14 rounded-xl flex items-center justify-center gap-3 hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-secondary">mail</span>
+<span class="font-title-md text-title-md text-on-surface">Sign in with Email</span>
+</button>
+</div>
+<!-- Footer Link -->
+<div class="mt-xl fade-slide-up" style="animation-delay: 0.6s;">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Don't have an account? 
+                <a class="text-secondary font-semibold hover:underline underline-offset-4 decoration-secondary/30 ml-1" href="#">Create an account</a>
+</p>
+</div>
+</main>
+<!-- Visual Polish: Background Glows -->
+<div class="fixed top-1/4 -left-20 w-64 h-64 bg-primary/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+<div class="fixed bottom-1/4 -right-20 w-64 h-64 bg-secondary/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+<script>
+        // Simple input focus interaction
+        const input = document.querySelector('input');
+        const container = input.closest('.glass-input');
+
+        input.addEventListener('focus', () => {
+            container.classList.add('ring-1', 'ring-secondary/50');
+        });
+
+        input.addEventListener('blur', () => {
+            container.classList.remove('ring-1', 'ring-secondary/50');
+        });
+
+        // Numeric entry restriction
+        input.addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/[^0-9]/g, '');
+        });
+
+        // Micro-interaction for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                let x = e.clientX - e.target.offsetLeft;
+                let y = e.clientY - e.target.offsetTop;
+                let ripples = document.createElement('span');
+                ripples.style.left = x + 'px';
+                ripples.style.top = y + 'px';
+                this.appendChild(ripples);
+                setTimeout(() => {
+                    ripples.remove();
+                }, 1000);
+            });
+        });
+    </script>
+</body></html>

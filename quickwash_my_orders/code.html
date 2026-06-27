@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>QuickWash | Orders</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0e1322;
+            color: #dee1f7;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .glass-pill {
+            background: rgba(26, 107, 204, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-cyan {
+            box-shadow: 0 0 15px rgba(76, 215, 246, 0.3);
+        }
+        .scroll-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .order-tab-active {
+            position: relative;
+            color: #4cd7f6;
+        }
+        .order-tab-active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 3px;
+            background: #4cd7f6;
+            border-radius: 999px;
+            box-shadow: 0 0 8px rgba(76, 215, 246, 0.8);
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-up {
+            animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#7c4ce6",
+                        "on-primary-fixed": "#001b3e",
+                        "surface-container-low": "#161b2b",
+                        "surface-bright": "#343949",
+                        "primary-fixed": "#d6e3ff",
+                        "inverse-surface": "#dee1f7",
+                        "error-container": "#93000a",
+                        "on-background": "#dee1f7",
+                        "secondary-container": "#03b5d3",
+                        "background": "#0e1322",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "on-primary-container": "#eaefff",
+                        "outline": "#8c919e",
+                        "surface-dim": "#0e1322",
+                        "outline-variant": "#424752",
+                        "on-tertiary-fixed-variant": "#5516be",
+                        "surface-container-highest": "#2f3445",
+                        "on-surface": "#dee1f7",
+                        "surface-variant": "#2f3445",
+                        "surface-container-high": "#25293a",
+                        "on-secondary-fixed": "#001f26",
+                        "tertiary": "#d0bcff",
+                        "primary-container": "#1a6bcc",
+                        "on-error": "#690005",
+                        "inverse-primary": "#005db9",
+                        "surface-container-lowest": "#090e1c",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed": "#e9ddff",
+                        "secondary-fixed": "#acedff",
+                        "surface-tint": "#aac7ff",
+                        "surface-container": "#1a1f2f",
+                        "on-surface-variant": "#c2c6d4",
+                        "on-primary": "#002f64",
+                        "primary": "#aac7ff",
+                        "on-secondary-container": "#00424e",
+                        "on-tertiary-container": "#f5ecff",
+                        "inverse-on-surface": "#2b3040",
+                        "secondary": "#4cd7f6",
+                        "primary-fixed-dim": "#aac7ff",
+                        "tertiary-fixed-dim": "#d0bcff",
+                        "on-tertiary": "#3c0091",
+                        "surface": "#0e1322",
+                        "on-secondary-fixed-variant": "#004e5c",
+                        "on-secondary": "#003640",
+                        "on-tertiary-fixed": "#23005c",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#00458d"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "xl": "32px",
+                        "lg": "24px",
+                        "base": "4px",
+                        "sm": "8px",
+                        "xs": "4px",
+                        "gutter": "16px",
+                        "container-padding": "20px"
+                    },
+                    "fontSize": {
+                        "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "30px", "fontWeight": "700"}],
+                        "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "400"}],
+                        "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600"}],
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background min-h-screen pb-32">
+<!-- Persistent Atmospheric Background -->
+<div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+
+<div class="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[120px]"></div>
+<div class="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-secondary/10 blur-[100px]"></div>
+</div>
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-white/10 backdrop-blur-[20px] border-b border-white/12 shadow-none">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-white/20">
+<img class="w-full h-full object-cover" data-alt="A futuristic 3D rendered avatar of a young tech-savvy professional with glowing blue light reflections on their glasses, set against a dark glassmorphic background with deep cyan and primary blue accents, high-end professional digital art style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCktl1-Vg98tpIdbX_AW0SzEvUGifbkuf2MG8FDWoeShA752maY8E2_1I170XXQ6-WSGCgQ4ryfkHSQTi-ErjB5C0JpGXpKlSUFpLqDoWDdeysIqGwPSXzeKk6MaqbRzTdreCOI6LvKMHw8T8J9AVgqD5tmNeINnNjD-CZJ0PC69bEvR_lfePaw7zI0XlVpI9vOHREMxleyUf85_ZsyJ1KwvAUquy5t0OFS8r8LgeGJOYLpIFzUMnJ6Bca7ppnM5ZFeoESqu0M5jBY"/>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary drop-shadow-[0_0_8px_rgba(170,199,255,0.5)]">QuickWash</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/5 transition-all text-primary">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<main class="pt-24 px-container-padding max-w-[800px] mx-auto">
+<!-- Tab Navigation -->
+<div class="flex items-center justify-center gap-12 mb-8 border-b border-white/5 pb-2">
+<button class="order-tab-active font-title-md text-title-md py-2 transition-all duration-300" id="tab-active" onclick="switchTab('active')">
+                Active
+            </button>
+<button class="text-on-surface-variant font-title-md text-title-md py-2 transition-all duration-300 hover:text-secondary" id="tab-past" onclick="switchTab('past')">
+                Past
+            </button>
+</div>
+<!-- Orders Container -->
+<div class="space-y-4" id="orders-list">
+<!-- Active Order Card 1 -->
+<div class="active-order glass-card rounded-2xl p-md animate-slide-up" style="animation-delay: 0.1s;">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest">Order ID</span>
+<h3 class="font-title-md text-title-md text-on-surface">#QW-88219</h3>
+</div>
+<div class="glass-pill px-3 py-1 rounded-full flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse shadow-[0_0_8px_#4cd7f6]"></span>
+<span class="text-label-sm font-label-sm text-secondary">Out for Delivery</span>
+</div>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 glass-pill flex items-center justify-center rounded-xl">
+<span class="material-symbols-outlined text-secondary">local_laundry_service</span>
+</div>
+<div>
+<p class="text-body-md font-body-md text-on-surface">Premium Wash &amp; Fold</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">12 items • $42.50</p>
+</div>
+</div>
+<!-- Progress Section -->
+<div class="mb-6">
+<div class="flex justify-between text-label-sm font-label-sm text-on-surface-variant mb-2">
+<span>Progress</span>
+<span>85%</span>
+</div>
+<div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-secondary glow-cyan rounded-full" style="width: 85%;"></div>
+</div>
+</div>
+<button class="w-full py-3 bg-gradient-to-r from-primary/80 to-secondary/80 hover:scale-[0.98] active:scale-95 transition-all duration-300 rounded-xl font-title-md text-on-primary-fixed flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">near_me</span>
+                    Track Order
+                </button>
+</div>
+<!-- Active Order Card 2 -->
+<div class="active-order glass-card rounded-2xl p-md animate-slide-up" style="animation-delay: 0.2s;">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest">Order ID</span>
+<h3 class="font-title-md text-title-md text-on-surface">#QW-88224</h3>
+</div>
+<div class="bg-white/5 border border-white/10 px-3 py-1 rounded-full flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Processing</span>
+</div>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 glass-pill flex items-center justify-center rounded-xl">
+<span class="material-symbols-outlined text-primary">dry_cleaning</span>
+</div>
+<div>
+<p class="text-body-md font-body-md text-on-surface">Delicate Dry Cleaning</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">4 items • $28.00</p>
+</div>
+</div>
+<div class="mb-6">
+<div class="flex justify-between text-label-sm font-label-sm text-on-surface-variant mb-2">
+<span>Progress</span>
+<span>30%</span>
+</div>
+<div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 30%;"></div>
+</div>
+</div>
+<button class="w-full py-3 border border-white/12 hover:bg-white/5 transition-all rounded-xl font-title-md text-on-surface flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">info</span>
+                    View Details
+                </button>
+</div>
+<!-- Past Order Card (Initially Hidden) -->
+<div class="past-order hidden glass-card rounded-2xl p-md animate-slide-up">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest">Order ID</span>
+<h3 class="font-title-md text-title-md text-on-surface">#QW-87900</h3>
+</div>
+<div class="bg-surface-container-high px-3 py-1 rounded-full flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">check_circle</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Completed</span>
+</div>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 bg-white/5 flex items-center justify-center rounded-xl border border-white/5">
+<img class="w-full h-full object-cover rounded-xl opacity-60" data-alt="A clean stack of folded white cotton towels and luxury bed linens in a professional laundry setting, illuminated by cold blue studio lighting, emphasizing crisp textures and high-end cleanliness in a glassmorphic dark theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpW346kYKgPV0ZLHxpgHIGKpD-bxxaOxikmxQnQX6wUq9vVS-Af9BHX-mPeXSk5OKEhxoxmbYcMhFbc6uDg6RTNARLpCzTmTo1WTP8npsGS0yfSKhqxWSKOpkQdMTOegtwEv_oE62RHJXupc6VHug0g0tZz0-m0aQkDz-xm4t5AXrmjKvT-HO4lC7TgpBhGEL3vIrvvIduSzZglI6b-CBrMtZPcJ8nqNcJhFj38pmxOSoLYlflZgWtomKAFF_7RymaywzfqaAqMv8"/>
+</div>
+<div>
+<p class="text-body-md font-body-md text-on-surface">Bulk Wash &amp; Press</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">25 items • Oct 12, 2023</p>
+</div>
+<div class="ml-auto text-right">
+<p class="font-title-md text-title-md text-secondary">$64.20</p>
+</div>
+</div>
+<button class="w-full py-3 bg-white/5 hover:bg-white/10 border border-white/12 transition-all rounded-xl font-title-md text-on-surface flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">reorder</span>
+                    Reorder
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe h-20 bg-white/10 backdrop-blur-[30px] border-t border-white/12 shadow-[0_-8px_32px_0_rgba(6,182,212,0.15)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary relative before:content-[''] before:absolute before:-top-2 before:w-8 before:h-1 before:bg-secondary before:rounded-full before:shadow-[0_0_12px_rgba(76,215,246,0.8)] active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+<span class="font-label-sm text-label-sm">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-label-sm text-label-sm">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        function switchTab(type) {
+            const activeTab = document.getElementById('tab-active');
+            const pastTab = document.getElementById('tab-past');
+            const activeOrders = document.querySelectorAll('.active-order');
+            const pastOrders = document.querySelectorAll('.past-order');
+
+            if (type === 'active') {
+                activeTab.classList.add('order-tab-active', 'text-secondary');
+                activeTab.classList.remove('text-on-surface-variant');
+                pastTab.classList.remove('order-tab-active', 'text-secondary');
+                pastTab.classList.add('text-on-surface-variant');
+
+                activeOrders.forEach(el => el.classList.remove('hidden'));
+                pastOrders.forEach(el => el.classList.add('hidden'));
+            } else {
+                pastTab.classList.add('order-tab-active', 'text-secondary');
+                pastTab.classList.remove('text-on-surface-variant');
+                activeTab.classList.remove('order-tab-active', 'text-secondary');
+                activeTab.classList.add('text-on-surface-variant');
+
+                activeOrders.forEach(el => el.classList.add('hidden'));
+                pastOrders.forEach(el => el.classList.remove('hidden'));
+                
+                // If the past order list was empty, we could simulate more items
+                if(pastOrders.length === 1 && !document.querySelector('.past-injected')) {
+                    const container = document.getElementById('orders-list');
+                    for(let i=1; i<4; i++) {
+                        const clone = pastOrders[0].cloneNode(true);
+                        clone.classList.remove('hidden');
+                        clone.classList.add('past-injected');
+                        clone.style.animationDelay = (i * 0.1) + 's';
+                        const id = clone.querySelector('h3');
+                        id.innerText = `#QW-87${89 - i}0`;
+                        container.appendChild(clone);
+                    }
+                }
+            }
+        }
+    </script>
+</body></html>

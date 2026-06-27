@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuickWash | Alerts</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#7c4ce6",
+                    "on-primary-fixed": "#001b3e",
+                    "surface-container-low": "#161b2b",
+                    "surface-bright": "#343949",
+                    "primary-fixed": "#d6e3ff",
+                    "inverse-surface": "#dee1f7",
+                    "error-container": "#93000a",
+                    "on-background": "#dee1f7",
+                    "secondary-container": "#03b5d3",
+                    "background": "#0e1322",
+                    "secondary-fixed-dim": "#4cd7f6",
+                    "on-primary-container": "#eaefff",
+                    "outline": "#8c919e",
+                    "surface-dim": "#0e1322",
+                    "outline-variant": "#424752",
+                    "on-tertiary-fixed-variant": "#5516be",
+                    "surface-container-highest": "#2f3445",
+                    "on-surface": "#dee1f7",
+                    "surface-variant": "#2f3445",
+                    "surface-container-high": "#25293a",
+                    "on-secondary-fixed": "#001f26",
+                    "tertiary": "#d0bcff",
+                    "primary-container": "#1a6bcc",
+                    "on-error": "#690005",
+                    "inverse-primary": "#005db9",
+                    "surface-container-lowest": "#090e1c",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed": "#e9ddff",
+                    "secondary-fixed": "#acedff",
+                    "surface-tint": "#aac7ff",
+                    "surface-container": "#1a1f2f",
+                    "on-surface-variant": "#c2c6d4",
+                    "on-primary": "#002f64",
+                    "primary": "#aac7ff",
+                    "on-secondary-container": "#00424e",
+                    "on-tertiary-container": "#f5ecff",
+                    "inverse-on-surface": "#2b3040",
+                    "secondary": "#4cd7f6",
+                    "primary-fixed-dim": "#aac7ff",
+                    "tertiary-fixed-dim": "#d0bcff",
+                    "on-tertiary": "#3c0091",
+                    "surface": "#0e1322",
+                    "on-secondary-fixed-variant": "#004e5c",
+                    "on-secondary": "#003640",
+                    "on-tertiary-fixed": "#23005c",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#00458d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "xl": "32px",
+                    "lg": "24px",
+                    "base": "4px",
+                    "sm": "8px",
+                    "xs": "4px",
+                    "gutter": "16px",
+                    "container-padding": "20px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "title-md": ["Inter"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "30px", "fontWeight": "700"}],
+                    "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600"}],
+                    "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0e1322;
+            color: #dee1f7;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:active {
+            transform: scale(0.98);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .glow-secondary {
+            box-shadow: 0 0 20px rgba(76, 215, 246, 0.3);
+        }
+
+        .glow-primary {
+            box-shadow: 0 0 20px rgba(170, 199, 255, 0.3);
+        }
+
+        .glow-tertiary {
+            box-shadow: 0 0 20px rgba(208, 188, 255, 0.3);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-slide-up {
+            animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+
+        /* Hide scrollbar */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen pb-24">
+<!-- Top App Bar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-white/10 backdrop-blur-[20px] border-b border-white/12">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-white/20">
+<img class="w-full h-full object-cover" data-alt="A close-up professional portrait of a stylish young individual with a friendly expression. The lighting is soft and cinematic, with a deep midnight blue background and subtle cyan highlights reflecting off their features, maintaining a high-end glassmorphism aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmMulwBeg5uz-OtqIyHA1jSQzMQqkeLOHWaNZuOH20v71MhxTUEsR6gq8XJeAquF7MsuQI6szEMGseO4OEjeR1SNcp_dw2QwbG7pcXQH5lm8XzegD5Q7vYedfcq0ShrPZaNjBNV4rK3QPkUd9ymObvgLL-C_nYVGaMvAKfPpIwObM308gy_dXtYKonKKiyCO4HpXuclmhLy7X7uisxCE4KTn1Sq12YKG1w0dBKHk1CG5-vBQDA4r9tTnf3y2OMCrwNwl9y-Jq4Y-Y"/>
+</div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary drop-shadow-[0_0_8px_rgba(170,199,255,0.5)]">QuickWash</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-primary hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 px-container-padding max-w-[800px] mx-auto">
+<!-- Header Section -->
+<section class="mb-8 animate-slide-up">
+<h1 class="font-headline-xl text-headline-xl text-on-surface mb-2">Alerts</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Stay updated with your latest laundry activities and exclusive offers.</p>
+</section>
+<!-- Notification List -->
+<div class="flex flex-col gap-4">
+<!-- Alert 1: Order Picked Up -->
+<div class="glass-card p-lg rounded-xl flex gap-4 items-start animate-slide-up stagger-1">
+<div class="w-12 h-12 flex-shrink-0 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20 glow-primary">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-title-md text-title-md text-on-surface">Order Picked Up</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2m ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3">Your order #QW-9842 has been successfully picked up by our partner, Marcus.</p>
+<button class="px-4 py-2 rounded-lg bg-primary/20 text-primary font-label-md text-label-md border border-primary/30 hover:bg-primary/30 transition-colors">
+                        Track Live
+                    </button>
+</div>
+<div class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(76,215,246,0.8)] mt-2"></div>
+</div>
+<!-- Alert 2: Offer -->
+<div class="glass-card p-lg rounded-xl flex gap-4 items-start animate-slide-up stagger-2">
+<div class="w-12 h-12 flex-shrink-0 rounded-full bg-tertiary/10 flex items-center justify-center border border-tertiary/20 glow-tertiary">
+<span class="material-symbols-outlined text-tertiary">sell</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-title-md text-title-md text-on-surface">Offer: 20% off on Ethnic Wear</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">1h ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3">Special care for your special garments. Use code ETHNIC20 for premium dry cleaning services.</p>
+<div class="flex gap-2">
+<button class="px-4 py-2 rounded-lg bg-tertiary-container text-on-tertiary-container font-label-md text-label-md hover:opacity-90 transition-opacity">
+                            Claim Offer
+                        </button>
+<button class="px-4 py-2 rounded-lg border border-white/12 text-on-surface-variant font-label-md text-label-md hover:bg-white/5 transition-colors">
+                            Details
+                        </button>
+</div>
+</div>
+<div class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(76,215,246,0.8)] mt-2"></div>
+</div>
+<!-- Alert 3: Delivery arriving -->
+<div class="glass-card p-lg rounded-xl flex gap-4 items-start animate-slide-up stagger-3">
+<div class="w-12 h-12 flex-shrink-0 rounded-full bg-secondary/10 flex items-center justify-center border border-secondary/20 glow-secondary">
+<span class="material-symbols-outlined text-secondary">avg_time</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-title-md text-title-md text-on-surface">Delivery arriving in 15 mins</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Now</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-2">Our delivery executive is nearing your location. Please keep the pickup/delivery code ready.</p>
+<div class="flex items-center gap-3 p-2 bg-white/5 rounded-lg border border-white/10">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-white/10">
+<img class="w-full h-full object-cover" data-alt="A hyper-realistic driver profile photo of a man in a crisp professional uniform. The setting is a clean, modern city street at twilight with glowing blue and cyan streetlights in the background. The style is sleek, cinematic, and fits a high-end luxury logistics application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8Dq3hx6RJ1rk2eJr4kh1WKIzhN-mtGVPdcG_N4uKG-BzNYwCBusUxMiLHMvgnv04Dsud81hjnhChLc434f5nJTc8R3qKCe7YUB_rnJwdUH-uZHgkj7w6AVWG_ahZTU9dZtEM_RAa0k28iJ_RZh9C6zt9wgGLiRNKIf3Q4VbgobulwjHrCrP1cju_87OM7k7z9RsUHplMgFcns6e3q1cc5XFHehc_w5mcnxdWJIncWM8sKaMs1kVir2SjsUyYD6KDwJcGTjiLD4G0"/>
+</div>
+<div class="text-xs font-label-md text-secondary">Marcus is on his way</div>
+</div>
+</div>
+</div>
+<!-- Promotion Bento Piece -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 animate-slide-up stagger-4 mt-4">
+<div class="glass-card relative overflow-hidden rounded-xl h-48 flex flex-col justify-end p-lg group cursor-pointer">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-700" data-alt="A wide-angle artistic shot of high-end fabrics and textures like silk and cashmere being delicately treated in a futuristic, glass-walled cleaning facility. The scene is bathed in cool cyan and deep indigo light, featuring microscopic water droplets shimmering like crystals in a sterile, technologically advanced environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUdfDtHqK5ytaSAYzemmF4D_zQMyXM20Qe-HSCXqPIy0G2Mm8eHx0g6MIwdY3VSLxbpHe7U8uV-3YO6cSGrf7CZl2QNbetqFAZ-M1aliRA7XjqwkjKiyoDo7A1XpXy-HVXvmYUjwHeunLSB4-HNvtdcC7Lrvq3HBWf1LYEQgy4uNvi0jFSOSDnWZgVclBXycOkKpTZN2yhSsIPJ95wKsHvpnxQFXQ5eqO4O-rJlGn0G5p_X6_Dq78TH3KYtITef8FUM1rFkewbp_s"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+</div>
+<div class="relative z-10">
+<span class="inline-block px-2 py-1 rounded bg-secondary/20 text-secondary font-label-sm text-label-sm mb-2 border border-secondary/30">PREMIUM SERVICE</span>
+<h4 class="font-title-md text-title-md text-white">Advanced Silk Care</h4>
+<p class="text-xs text-on-surface-variant">Proprietary solvent-free cleaning</p>
+</div>
+</div>
+<div class="glass-card relative overflow-hidden rounded-xl h-48 flex flex-col justify-center items-center p-lg text-center">
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-secondary/10 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-12 -left-12 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
+<span class="material-symbols-outlined text-primary mb-2 text-4xl">inventory_2</span>
+<h4 class="font-title-md text-title-md text-on-surface">Refer &amp; Earn</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Get $10 for every friend you refer to QuickWash.</p>
+<button class="mt-4 font-label-md text-label-md text-secondary hover:underline">Invite Friends</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe h-20 bg-white/10 backdrop-blur-[30px] border-t border-white/12 shadow-[0_-8px_32px_0_rgba(6,182,212,0.15)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm mt-1">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary relative before:content-[''] before:absolute before:-top-2 before:w-8 before:h-1 before:bg-secondary before:rounded-full before:shadow-[0_0_12px_rgba(76,215,246,0.8)] active:scale-95 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="font-label-sm text-label-sm mt-1">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</nav>
+<!-- Micro-interaction Script -->
+<script>
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const dot = this.querySelector('.w-2.h-2.rounded-full');
+                if (dot) {
+                    dot.style.opacity = '0';
+                    dot.style.transition = 'opacity 0.5s ease';
+                }
+            });
+        });
+    </script>
+</body></html>
