@@ -12,6 +12,7 @@ class GlassInput extends StatefulWidget {
   final Widget? suffix;
   final Widget? prefix;
   final double borderRadius;
+  final int maxLines;
 
   const GlassInput({
     super.key,
@@ -24,6 +25,7 @@ class GlassInput extends StatefulWidget {
     this.suffix,
     this.prefix,
     this.borderRadius = 12,
+    this.maxLines = 1,
   });
 
   @override
@@ -79,6 +81,7 @@ class _GlassInputState extends State<GlassInput> {
             focusNode: _focusNode,
             obscureText: widget.obscureText,
             keyboardType: widget.keyboardType,
+            maxLines: widget.maxLines,
             style: const TextStyle(
               fontSize: 15,
               color: AppColors.onSurface,

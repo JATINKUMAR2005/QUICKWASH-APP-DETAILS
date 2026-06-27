@@ -466,21 +466,30 @@ class AppState extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> updateUserProfile({String? name, String? address, double? balance}) async {
-    if (_currentUser == null) return;
+  Future<bool> updateUserProfile({String? name, String? email, String? address, double? balance}) async {
+    if (_currentUser == null) return false;
     if (name != null) _currentUser!['name'] = name;
+    if (email != null) _currentUser!['email'] = email;
     if (address != null) _currentUser!['address'] = address;
     if (balance != null) _currentUser!['balance'] = balance;
 
     if (isSupabaseEnabled) {
-      final userId = supabase.auth.currentUser!.id;
-      final updates = <String, dynamic>{};
-      if (name != null) updates['name'] = name;
-      if (address != null) updates['address'] = address;
-      if (balance != null) updates['balance'] = balance;
-      updates['updated_at'] = DateTime.now().toUtc().toIso8601String();
+      try {
+        final userId = supabase.auth.currentUser!.id;
+        final updates = <String, dynamic>{};
+        if (name != null) updates['name'] = name;
+        if (email != null) updates['email'] = email;
+        if (address != null) updates['address'] = address;
+        if (balance != null) updates['balance'] = balance;
+        updates['updated_at'] = DateTime.now().toUtc().toIso8601String();
 
-      await supabase.from('profiles').update(updates).eq('id', userId);
+        await supabase.from('profiles').update(updates).eq('id', userId);
+        notifyListeners();
+        return true;
+      } catch (e) {
+        debugPrint('Error updating user profile: $e');
+        return false;
+      }
     } else {
       // Update in users list as well
       for (var i = 0; i < _users.length; i++) {
@@ -491,8 +500,9 @@ class AppState extends ChangeNotifier {
       }
       await _prefs!.setString('qw_users', jsonEncode(_users));
       await _prefs!.setString('qw_current_user', jsonEncode(_currentUser));
+      notifyListeners();
+      return true;
     }
-    notifyListeners();
   }
 
   // --- CART MANAGEMENT ---
