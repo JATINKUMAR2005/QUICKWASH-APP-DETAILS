@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'theme/app_theme.dart';
 import 'screens/auth/sign_in_screen.dart';
+import 'screens/auth/email_verification_screen.dart';
+import 'screens/auth/complete_profile_screen.dart';
 import 'screens/home/home_shell.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'services/supabase_config.dart';
@@ -45,12 +47,42 @@ class QuickWashApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isLoggedIn = AppState().currentUser != null;
-    return MaterialApp(
-      title: 'QuickWash 2.0',
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme.darkTheme,
-      home: isLoggedIn ? const HomeShell() : const SignInScreen(),
+    return AnimatedBuilder(
+      animation: AppState(),
+      builder: (context, _) {
+        final appState = AppState();
+        final isLoggedIn = appState.currentUser != null;
+
+        Widget homeScreen;
+        if (!isLoggedIn) {
+          homeScreen = const SignInScreen();
+        } else {
+          // If Supabase is active, check if email is confirmed
+          final bool isEmailUnconfirmed = appState.isSupabaseEnabled &&
+              appState.supabase.auth.currentUser != null &&
+              appState.supabase.auth.currentUser!.emailConfirmedAt == null;
+
+          if (isEmailUnconfirmed) {
+            homeScreen = const EmailVerificationScreen();
+          } else {
+            // Check if profile is complete (needs real Name and Address)
+            final name = appState.currentUser?['name'] as String? ?? '';
+            final address = appState.currentUser?['address'] as String? ?? '';
+            if (name == 'Guest User' || name.trim().isEmpty || address.trim().isEmpty) {
+              homeScreen = const CompleteProfileScreen();
+            } else {
+              homeScreen = const HomeShell();
+            }
+          }
+        }
+
+        return MaterialApp(
+          title: 'QuickWash 2.0',
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.darkTheme,
+          home: homeScreen,
+        );
+      },
     );
   }
 }

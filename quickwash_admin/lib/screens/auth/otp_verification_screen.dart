@@ -5,7 +5,7 @@ import '../../theme/app_theme.dart';
 import '../../widgets/glass_button.dart';
 import '../../widgets/glass_card.dart';
 import '../../services/local_database.dart';
-import '../home/home_shell.dart';
+import '../admin/admin_dashboard_screen.dart';
 
 class OtpVerificationScreen extends StatefulWidget {
   final String phoneNumber;
@@ -74,43 +74,41 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
       _errorMessage = null;
     });
 
+    // Mock processing verification
+    await Future.delayed(const Duration(milliseconds: 800));
+
+    // Sign in the user session in database
     final appState = AppState();
-    bool verified = false;
-
-    if (appState.isSupabaseEnabled) {
-      try {
-        final res = await appState.supabase.auth.verifyOTP(
-          type: OtpType.sms,
-          token: code,
-          phone: '+91${widget.phoneNumber}',
-        );
-        if (res.user != null) {
-          await appState.syncUserProfileAfterOtp(widget.phoneNumber);
-          verified = true;
-        }
-      } catch (e) {
-        debugPrint('Supabase OTP verification failed: $e. Falling back to Simulated OTP verification.');
-      }
-    }
-
-    if (!verified) {
-      // Simulated OTP fallback
-      final userFound = await appState.loginUser(widget.phoneNumber, '');
-      if (!userFound) {
-        await appState.registerUser(
-          name: 'Guest User',
-          email: 'user_${widget.phoneNumber}@quickwash.in',
-          phone: widget.phoneNumber,
-          password: '',
-        );
-        await appState.loginUser(widget.phoneNumber, '');
-      }
+    // Check if the user already exists in db, otherwise create a session for this phone number
+    final userFound = await appState.loginUser(widget.phoneNumber, '');
+    if (!userFound) {
+      // Create a default session for this phone number
+      await appState.registerUser(
+        name: 'Guest User',
+        email: 'user_${widget.phoneNumber}@quickwash.in',
+        phone: widget.phoneNumber,
+        password: '',
+      );
+      await appState.loginUser(widget.phoneNumber, '');
     }
 
     setState(() => _isLoading = false);
 
     if (mounted) {
-      Navigator.of(context).popUntil((route) => route.isFirst);
+      final role = appState.currentUser?['role'] ?? 'customer';
+      if (role != 'admin') {
+        await appState.logout();
+        setState(() {
+          _errorMessage = 'Access Denied: Admin role required.';
+        });
+        return;
+      }
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(
+          builder: (_) => const AdminDashboardScreen(),
+        ),
+        (route) => false,
+      );
     }
   }
 

@@ -314,8 +314,10 @@ class ProfileScreen extends StatelessWidget {
     required IconData icon,
     required String title,
     required String trailing,
+    VoidCallback? onTap,
   }) {
     return ListTile(
+      onTap: onTap,
       leading: Icon(icon, color: AppColors.secondary, size: 22),
       title: Text(
         title,

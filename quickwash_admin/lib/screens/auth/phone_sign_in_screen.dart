@@ -44,20 +44,8 @@ class _PhoneSignInScreenState extends State<PhoneSignInScreen> {
       _errorMessage = null;
     });
 
-    final appState = AppState();
-    final formattedPhone = '+91$phone';
-
-    if (appState.isSupabaseEnabled) {
-      try {
-        await appState.supabase.auth.signInWithOtp(
-          phone: formattedPhone,
-        );
-      } catch (e) {
-        debugPrint('Supabase SMS OTP request failed: $e. Falling back to Simulated OTP.');
-      }
-    } else {
-      await Future.delayed(const Duration(milliseconds: 800));
-    }
+    // Mock verification sending
+    await Future.delayed(const Duration(milliseconds: 800));
 
     setState(() => _isLoading = false);
 
